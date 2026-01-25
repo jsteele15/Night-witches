@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://brlqrc2qsr4pe"]
+
+[ext_resource type="PackedScene" uid="uid://1hlkjuhk8k81" path="res://map/ground_layer.tscn" id="1_cb1di"]
+[ext_resource type="Script" uid="uid://dta01taeq0f5h" path="res://map/main.gd" id="1_ukg08"]
+[ext_resource type="PackedScene" uid="uid://bg74y0aekh2w4" path="res://characters/player.tscn" id="2_i5wha"]
+[ext_resource type="PackedScene" uid="uid://3wqwvlj82yr" path="res://map/building_container.tscn" id="3_2g53n"]
+
+[node name="main" type="Node2D"]
+script = ExtResource("1_ukg08")
+
+[node name="ground layer" parent="." instance=ExtResource("1_cb1di")]
+
+[node name="building container" parent="." instance=ExtResource("3_2g53n")]
+
+[node name="player" parent="." instance=ExtResource("2_i5wha")]
+z_index = 10
+position = Vector2(475, 562)

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://gbouetnjuyxf"]
+
+[ext_resource type="Texture2D" uid="uid://l6hpktvn6v83" path="res://assets/img/house.png" id="1_70a1a"]
+[ext_resource type="Script" uid="uid://dkqskp8lialm" path="res://map/building.gd" id="1_a73il"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a73il"]
+radius = 42.107006
+
+[node name="house" type="Area2D"]
+script = ExtResource("1_a73il")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_a73il")
+
+[node name="House" type="Sprite2D" parent="."]
+position = Vector2(0, -1)
+texture = ExtResource("1_70a1a")
+hframes = 2
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

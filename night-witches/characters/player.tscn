@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://bg74y0aekh2w4"]
+
+[ext_resource type="Script" uid="uid://cfhan2iushlcx" path="res://characters/player.gd" id="1_3eadt"]
+[ext_resource type="Texture2D" uid="uid://0enhcdyk0peh" path="res://assets/img/plane.png" id="1_dnjla"]
+[ext_resource type="PackedScene" uid="uid://c2su4i1dxoh6n" path="res://ui/game_camera.tscn" id="3_tory2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3eadt"]
+radius = 30.149628
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tory2"]
+radius = 11.18034
+
+[node name="player" type="CharacterBody2D"]
+script = ExtResource("1_3eadt")
+
+[node name="Plane" type="Sprite2D" parent="."]
+rotation = 3.1415927
+texture = ExtResource("1_dnjla")
+
+[node name="plane area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plane area"]
+shape = SubResource("CircleShape2D_3eadt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_tory2")
+debug_color = Color(0.8979024, 0.2793323, 0.38732737, 0.41960785)
+
+[node name="game camera" parent="." instance=ExtResource("3_tory2")]
