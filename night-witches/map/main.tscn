@@ -1,9 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://brlqrc2qsr4pe"]
+[gd_scene load_steps=8 format=3 uid="uid://brlqrc2qsr4pe"]
 
 [ext_resource type="PackedScene" uid="uid://1hlkjuhk8k81" path="res://map/ground_layer.tscn" id="1_cb1di"]
 [ext_resource type="Script" uid="uid://dta01taeq0f5h" path="res://map/main.gd" id="1_ukg08"]
 [ext_resource type="PackedScene" uid="uid://bg74y0aekh2w4" path="res://characters/player.tscn" id="2_i5wha"]
 [ext_resource type="PackedScene" uid="uid://3wqwvlj82yr" path="res://map/building_container.tscn" id="3_2g53n"]
+[ext_resource type="PackedScene" uid="uid://bkighx3mjbtj" path="res://map/world.tscn" id="5_kdw7h"]
+[ext_resource type="PackedScene" uid="uid://28grpjl81215" path="res://ui/ui.tscn" id="6_vthes"]
+
+[sub_resource type="Compositor" id="Compositor_kdw7h"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_ukg08")
@@ -15,3 +19,8 @@ script = ExtResource("1_ukg08")
 [node name="player" parent="." instance=ExtResource("2_i5wha")]
 z_index = 10
 position = Vector2(475, 562)
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("5_kdw7h")]
+compositor = SubResource("Compositor_kdw7h")
+
+[node name="ui" parent="." instance=ExtResource("6_vthes")]

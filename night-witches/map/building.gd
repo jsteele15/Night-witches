@@ -29,6 +29,7 @@ func _process(delta: float) -> void:
 func bombed():
 	if destroyed == false:
 		build_im.frame = 1
+		GameVars.current_points += GameVars.SMALL_TARGET
 		destroyed = true
 
 #
