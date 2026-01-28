@@ -27,3 +27,14 @@ shape = SubResource("CircleShape2D_tory2")
 debug_color = Color(0.8979024, 0.2793323, 0.38732737, 0.41960785)
 
 [node name="game camera" parent="." instance=ExtResource("3_tory2")]
+
+[node name="bombing cooldown" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="out spotlight cooldown" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="bombing cooldown" to="." method="_on_bombing_cooldown_timeout"]
+[connection signal="timeout" from="out spotlight cooldown" to="." method="_on_out_spotlight_cooldown_timeout"]

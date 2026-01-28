@@ -1,3 +1,18 @@
-[gd_scene format=3 uid="uid://dhfepqtno77tg"]
+[gd_scene load_steps=4 format=3 uid="uid://dhfepqtno77tg"]
+
+[ext_resource type="Texture2D" uid="uid://cw4l8placqi1l" path="res://assets/img/airport.png" id="1_icxdc"]
+[ext_resource type="Script" uid="uid://ckf54tux65oca" path="res://map/base.gd" id="1_ytsc4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ytsc4"]
+radius = 46.0
 
 [node name="base" type="Area2D"]
+script = ExtResource("1_ytsc4")
+
+[node name="Airport" type="Sprite2D" parent="."]
+texture = ExtResource("1_icxdc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ytsc4")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

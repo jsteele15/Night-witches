@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://28grpjl81215"]
+[gd_scene load_steps=5 format=3 uid="uid://28grpjl81215"]
 
 [ext_resource type="Script" uid="uid://d3m4vlek1ox56" path="res://ui/ui.gd" id="1_ks8t7"]
 [ext_resource type="PackedScene" uid="uid://rye13sdxr8wl" path="res://ui/altitude_bar.tscn" id="1_nb4k0"]
 [ext_resource type="PackedScene" uid="uid://bgt42kf48x0se" path="res://ui/timer_top.tscn" id="3_wl5ax"]
+[ext_resource type="PackedScene" uid="uid://brnf6mgju1lb8" path="res://ui/vis_indicator.tscn" id="4_vkava"]
 
 [node name="ui" type="CanvasLayer"]
 script = ExtResource("1_ks8t7")
@@ -36,3 +37,8 @@ offset_left = 2.0
 offset_top = 2.0
 offset_right = 2.0
 offset_bottom = -8.0
+
+[node name="VisIndicator" parent="." instance=ExtResource("4_vkava")]
+anchors_preset = 15
+offset_top = 9.0
+offset_bottom = -1.0

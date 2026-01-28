@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://1hlkjuhk8k81"]
+[gd_scene load_steps=6 format=4 uid="uid://1hlkjuhk8k81"]
 
 [ext_resource type="Texture2D" uid="uid://dtymiyx3362la" path="res://assets/img/ground tiles.png" id="1_ffjgw"]
 [ext_resource type="PackedScene" uid="uid://dpemb1eumhugd" path="res://map/spotlight.tscn" id="2_we27d"]
+[ext_resource type="PackedScene" uid="uid://dhfepqtno77tg" path="res://map/base.tscn" id="3_l6v7l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_we27d"]
 texture = ExtResource("1_ffjgw")
@@ -29,3 +30,8 @@ polygon = PackedVector2Array(501, 0, 227, -146, -391, -122, -491, 1164, -342, 14
 
 [node name="Spotlight" parent="spotlights" instance=ExtResource("2_we27d")]
 position = Vector2(451, 459)
+
+[node name="friendly buildings" type="Node" parent="."]
+
+[node name="base" parent="friendly buildings" instance=ExtResource("3_l6v7l")]
+position = Vector2(1599, 1243)

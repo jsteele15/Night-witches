@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://83ok3xdif8cu"]
+
+[ext_resource type="Texture2D" uid="uid://jib8ojtsjoih" path="res://assets/img/german plane.png" id="1_7tlso"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j6yx1"]
+radius = 30.149628
+
+[node name="enemy_plane" type="CharacterBody2D"]
+
+[node name="Plane" type="Sprite2D" parent="."]
+rotation = 3.1415927
+texture = ExtResource("1_7tlso")
+
+[node name="plane area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plane area"]
+shape = SubResource("CircleShape2D_j6yx1")

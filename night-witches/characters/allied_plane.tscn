@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dr67q6si6b1j4"]
+
+[ext_resource type="Texture2D" uid="uid://0enhcdyk0peh" path="res://assets/img/plane.png" id="1_7wkft"]
+[ext_resource type="Script" uid="uid://dffsdvm8do63b" path="res://characters/allied_plane.gd" id="1_vjawq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vjawq"]
+radius = 30.149628
+
+[node name="allied plane" type="CharacterBody2D"]
+script = ExtResource("1_vjawq")
+
+[node name="Plane" type="Sprite2D" parent="."]
+rotation = 3.1415927
+texture = ExtResource("1_7wkft")
+
+[node name="plane area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plane area"]
+shape = SubResource("CircleShape2D_vjawq")
