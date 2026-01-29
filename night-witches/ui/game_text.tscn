@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://xeg2gnmclwhw"]
+
+[ext_resource type="FontFile" uid="uid://bxf31s7aeu1cf" path="res://assets/fonts/TrajanusRoman-6aEq.ttf" id="1_8ib7s"]
+[ext_resource type="Script" uid="uid://bobpartbt4sji" path="res://ui/game_text.gd" id="2_fbnmy"]
+
+[node name="game text" type="RichTextLabel"]
+offset_right = 174.0
+offset_bottom = 40.0
+theme_override_colors/default_color = Color(0.90588236, 0.7529412, 0.56078434, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = 6
+theme_override_constants/shadow_outline_size = 2
+theme_override_constants/shadow_offset_x = 2
+theme_override_fonts/normal_font = ExtResource("1_8ib7s")
+theme_override_font_sizes/normal_font_size = 36
+bbcode_enabled = true
+text = "[center] Whatever
+
+you fucking say buddy
+
+i juist sdfofiahgdbu
+
+anyway"
+fit_content = true
+script = ExtResource("2_fbnmy")

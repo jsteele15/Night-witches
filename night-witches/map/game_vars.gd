@@ -35,3 +35,21 @@ var night_over : bool = false
 var current_points : int = 0
 
 const SMALL_TARGET : int = 100
+
+func reset():
+	"""reset all values to its original point"""
+	cur_time = 1320
+	night_over = false
+	player_alive = true
+	current_points = 0
+	current_sus = 0
+	current_hight = 3000
+	number_of_bombs = 4
+
+var TUTORIAL_INTRO : String = "[center]Comrade, bomb them or summet".format({})
+var TUTORIAL_MOVE : String = "[center]A or D keys to change direction".format({})
+var TUTORIAL_SPACE : String = "[center]press SPACE to drop a bomb on target".format({})
+var TUTORIAL_NOISE : String = "[center]be mindful of the noise you make, press E to turn off your engines. But be carfule you dont fly too low".format({})
+var TUTORIAL_BASE : String = "[center]return to base to collect more bombs and allies".format({})
+var TUTORIAL_ALLIES : String = "[center]allies will keep Nazi planes and spotlights off your back".format({})
+var TUTORIAL_END : String = "[center]You now know everything you'll need to defend our glorious peoples republic!".format({})

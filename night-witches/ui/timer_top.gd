@@ -1,19 +1,19 @@
 extends Control
 
 
-@onready var timer_text : RichTextLabel = $RichTextLabel
+@onready var timer_text : RichTextLabel = $"clock text"
 @onready var timer : Timer = $"game timer"
 
 var end_triggered : bool = false
 func _ready():
 	_update_label()  # show initial time
-
+	timer_text.is_clock = true
 
 
 func _update_label():
 	var minutes = int(GameVars.cur_time / 60)
 	var seconds = int(GameVars.cur_time % 60)
-	timer_text.text = "%02d:%02d" % [minutes, seconds]
+	timer_text.text = "[center]%02d:%02d" % [minutes, seconds]
 
 
 func _on_game_timer_timeout() -> void:

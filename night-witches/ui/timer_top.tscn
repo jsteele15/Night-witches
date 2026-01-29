@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bgt42kf48x0se"]
+[gd_scene load_steps=3 format=3 uid="uid://bgt42kf48x0se"]
 
 [ext_resource type="Script" uid="uid://cj6ongxufckw5" path="res://ui/timer_top.gd" id="1_30jxs"]
+[ext_resource type="PackedScene" uid="uid://xeg2gnmclwhw" path="res://ui/game_text.tscn" id="2_yi5qi"]
 
 [node name="timer top" type="Control"]
 layout_mode = 3
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 10.0
@@ -11,17 +13,19 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_30jxs")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="clock text" parent="." instance=ExtResource("2_yi5qi")]
+clip_contents = false
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.46400002
-anchor_right = 0.46400002
-offset_left = -108.528015
-offset_top = 8.0
-offset_right = 109.471985
-offset_bottom = 71.0
-theme_override_font_sizes/normal_font_size = 36
-bbcode_enabled = true
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -576.0
+offset_top = 30.0
+offset_right = 576.0
+offset_bottom = 638.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/line_separation = 20
 text = "[center]00:00"
 
 [node name="game timer" type="Timer" parent="."]
