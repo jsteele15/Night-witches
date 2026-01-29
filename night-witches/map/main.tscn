@@ -27,6 +27,9 @@ position = Vector2(475, 562)
 [node name="allied plane" parent="allied planes" instance=ExtResource("5_1ob52")]
 position = Vector2(531, 477)
 
+[node name="allied plane2" parent="allied planes" instance=ExtResource("5_1ob52")]
+position = Vector2(414, 476)
+
 [node name="german planes" type="Node" parent="."]
 
 [node name="enemy_plane" parent="german planes" instance=ExtResource("6_vknsq")]

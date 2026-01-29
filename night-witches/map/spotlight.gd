@@ -41,8 +41,12 @@ func _move_spotlight(delta: float):
 		if global_position.distance_to(target) < 5:
 			target = point_a if target == point_b else point_b
 	else:
-		target = plane.position
-		if global_position.distance_to(starting_point) > spotlight_range:
+		if plane != null:
+			target = plane.position
+			if global_position.distance_to(starting_point) > spotlight_range:
+				target = point_a
+				spotted_plane = false
+		else:
 			target = point_a
 			spotted_plane = false
 
@@ -60,7 +64,14 @@ func _on_spotlight_area_body_entered(body: Node2D) -> void:
 		plane_entered = true
 		body.in_spotlight = true
 		spotted_plane = true
-		plane = body
+		if GameVars.allied_planes.get_child_count() > 0:
+			for p in GameVars.allied_planes.get_children():
+				if p.run_away == false:
+					plane = p
+					p.run_away = true
+					break
+		else:
+			plane = body
 
 
 func _on_spotlight_area_body_exited(body: Node2D) -> void:

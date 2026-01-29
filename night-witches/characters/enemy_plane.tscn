@@ -1,17 +1,40 @@
-[gd_scene load_steps=3 format=3 uid="uid://83ok3xdif8cu"]
+[gd_scene load_steps=6 format=3 uid="uid://83ok3xdif8cu"]
 
 [ext_resource type="Texture2D" uid="uid://jib8ojtsjoih" path="res://assets/img/german plane.png" id="1_7tlso"]
+[ext_resource type="Script" uid="uid://eo1343o6an1" path="res://characters/enemy_plane.gd" id="1_j6yx1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j6yx1"]
-radius = 30.149628
+radius = 95.02105
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7mrjc"]
+radius = 177.00282
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o4frs"]
+radius = 275.0
 
 [node name="enemy_plane" type="CharacterBody2D"]
+script = ExtResource("1_j6yx1")
 
 [node name="Plane" type="Sprite2D" parent="."]
 rotation = 3.1415927
 texture = ExtResource("1_7tlso")
 
-[node name="plane area" type="Area2D" parent="."]
+[node name="plane area low" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="plane area"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plane area low"]
 shape = SubResource("CircleShape2D_j6yx1")
+
+[node name="plane area mid" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plane area mid"]
+shape = SubResource("CircleShape2D_7mrjc")
+debug_color = Color(0.94847864, 4.3317677e-06, 0.58047587, 0.41960785)
+
+[node name="plane area far" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plane area far"]
+shape = SubResource("CircleShape2D_o4frs")
+
+[connection signal="body_entered" from="plane area low" to="." method="_on_plane_area_low_body_entered"]
+[connection signal="body_entered" from="plane area mid" to="." method="_on_plane_area_mid_body_entered"]
+[connection signal="body_entered" from="plane area far" to="." method="_on_plane_area_far_body_entered"]
