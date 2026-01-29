@@ -15,16 +15,25 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	if GameVars.player_shot_down == true and death_trig == false:
+		fail_text.visible = true
+		fail_text.set_up_text("[center]You were shot down".format({}))
+		restart_button.visible = true
+		death_trig = true
+		return
+	
 	if GameVars.player_alive == false and death_trig == false:
 		fail_text.visible = true
 		fail_text.set_up_text("[center]You Crashed".format({}))
 		restart_button.visible = true
 		death_trig = true
+		return
 		
 	if GameVars.night_over == true and night_over_trig == false:
 		fail_text.text = "[center]Night over, points {p}".format({"p": GameVars.current_points})
 		fail_text.visible = true
 		fail_text.set_up_text("[center]Night over, points {p}".format({"p": GameVars.current_points}))
+		restart_button.visible = true
 		night_over_trig = true
 
 

@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var plane_image : Sprite2D = $Plane
 @onready var bombing_cooldown : Timer = $"bombing cooldown"
 @onready var spotlight_cooldown : Timer = $"out spotlight cooldown"
+@onready var camera : Camera2D = $"game camera"
 var speed : float = 300.0
 const MAX_SPEED : float = 300.0
 const BOTTOM_SPEED : float = 200.0
@@ -122,6 +123,7 @@ func _bomb():
 	"""check how many bomb we have left, if its zero, return"""
 	if GameVars.number_of_bombs > -1:
 		main.building_container.bombing()
+		camera.shake()
 		fired_recently = true
 		bombing_cooldown.start()
 		GameVars.number_of_bombs -= 1

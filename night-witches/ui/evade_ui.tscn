@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://rl7k5x70dwb4"]
+
+[ext_resource type="Script" uid="uid://dmb3tmqbhfhp5" path="res://ui/evade_ui.gd" id="1_25dnf"]
+[ext_resource type="PackedScene" uid="uid://xeg2gnmclwhw" path="res://ui/game_text.tscn" id="2_dgo7g"]
+
+[node name="evade ui" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_25dnf")
+
+[node name="evade time" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="game text" parent="." instance=ExtResource("2_dgo7g")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 409.0
+offset_right = 0.0
+offset_bottom = -112.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 90
+text = "[center]Evade within"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="game text2" parent="." instance=ExtResource("2_dgo7g")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 492.0
+offset_right = 0.0
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_font_sizes/normal_font_size = 90
+text = "[center]Evade within"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="timeout" from="evade time" to="." method="_on_evade_time_timeout"]

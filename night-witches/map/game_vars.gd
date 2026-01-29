@@ -6,7 +6,9 @@ var allied_planes : Node
 #stuff related to the player
 #living status
 var player_alive : bool = true
-
+var player_shot_down : bool = false
+var being_persued : bool = false
+var persuer 
 #for bombing
 const MAX_BOMBS : int = 4
 var number_of_bombs : int = 4
@@ -41,6 +43,9 @@ func reset():
 	cur_time = 1320
 	night_over = false
 	player_alive = true
+	player_shot_down = false
+	being_persued = false
+	persuer = null
 	current_points = 0
 	current_sus = 0
 	current_hight = 3000

@@ -7,8 +7,13 @@ var bottom_speed: float = 80.0
 
 #give it a hunting spot
 @export var target = Vector2(500, 500)
+var start_target : Vector2 
 var speed : float
 var locked_on : bool = false
+
+func _ready() -> void:
+	start_target = target
+
 func _physics_process(delta: float) -> void:
 	_move(delta)
 
@@ -16,6 +21,8 @@ func _move(delta : float):
 	var to_target
 	
 	if not target:
+		target = start_target
+		locked_on = false
 		return
 	
 	if target is not Vector2:
@@ -58,23 +65,32 @@ func _choose_plane_to_hunt(body : Node2D):
 			if p.run_away == false:
 				target = p
 				p.run_away = true
+				GameVars.being_persued = false
 				break
 	else:
 		#hunt the player
 		target = body
+		GameVars.persuer = self
+		GameVars.being_persued = true
 
 func _on_plane_area_low_body_entered(body: Node2D) -> void:
 	if body.has_method("_bomb"):
+		if target is CharacterBody2D:
+			return
 		_choose_plane_to_hunt(body)
 
 
 func _on_plane_area_mid_body_entered(body: Node2D) -> void:
 	if GameVars.current_sus == 1:
 		if body.has_method("_bomb"):
+			if target is CharacterBody2D:
+				return
 			_choose_plane_to_hunt(body)
 
 
 func _on_plane_area_far_body_entered(body: Node2D) -> void:
 	if GameVars.current_sus >= 2:
 		if body.has_method("_bomb"):
+			if target is CharacterBody2D:
+				return
 			_choose_plane_to_hunt(body)

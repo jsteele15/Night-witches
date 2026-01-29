@@ -17,6 +17,7 @@ func _update_label():
 
 
 func _on_game_timer_timeout() -> void:
+	
 	if GameVars.night_over == true or GameVars.player_alive == false:
 		timer.stop()
 		return

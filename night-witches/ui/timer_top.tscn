@@ -41,7 +41,7 @@ theme_override_constants/line_separation = 20
 text = "[center]00:00"
 
 [node name="game timer" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.2
 autostart = true
 
 [node name="Panel" type="Panel" parent="."]

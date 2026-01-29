@@ -10,6 +10,12 @@ tile_set = ExtResource("1_fnp3o")
 
 [node name="walls" type="StaticBody2D" parent="."]
 
+[node name="PointLight2D" type="CollisionPolygon2D" parent="walls"]
+polygon = PackedVector2Array(4347, -27, 4364, -327, -524, -354, -542, 3047, 4644, 3053, 4644, 2643, 4355, 2622, 3, 2622, 3, -1, 880, -30)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="walls"]
+polygon = PackedVector2Array(4340, -26, 4351, 2615, 4692, 2649, 4793, -64)
+
 [node name="spotlights" type="Node" parent="."]
 
 [node name="Spotlight" parent="spotlights" instance=ExtResource("2_qvr7t")]

@@ -1,3 +1,10 @@
-[gd_scene format=3 uid="uid://c2su4i1dxoh6n"]
+[gd_scene load_steps=2 format=3 uid="uid://c2su4i1dxoh6n"]
+
+[ext_resource type="Script" uid="uid://bi3k4dk337m0p" path="res://ui/game_camera.gd" id="1_bgw00"]
 
 [node name="game camera" type="Camera2D"]
+limit_left = 0
+limit_top = 0
+limit_right = 4300
+limit_bottom = 2600
+script = ExtResource("1_bgw00")

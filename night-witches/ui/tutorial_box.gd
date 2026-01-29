@@ -1,7 +1,7 @@
 extends Control
 
 @onready var tutorial_text : RichTextLabel = $"game text"
-@onready var next_button : Button = $"game text/next button"
+@onready var next_button : Button = $"next button"
 
 var this_trig : bool = false
 
