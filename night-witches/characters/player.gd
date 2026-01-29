@@ -29,6 +29,9 @@ var in_spotlight : bool = false
 func _physics_process(delta: float) -> void:
 	if GameVars.player_alive == false:
 		return
+	
+	if main.is_this_tutorial == true and GameVars.move_around == false:
+		return
 	_move(delta)
 	_change_hight()
 	_crash()

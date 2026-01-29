@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://rye13sdxr8wl"]
+[gd_scene load_steps=3 format=3 uid="uid://rye13sdxr8wl"]
 
 [ext_resource type="Script" uid="uid://4pfuiru7fujv" path="res://ui/altitude_bar.gd" id="1_616gt"]
+[ext_resource type="Texture2D" uid="uid://bwek3wufva7sr" path="res://assets/img/tutorial arrow.png" id="2_l8db3"]
 
 [node name="altitude bar" type="Control"]
 layout_mode = 3
+anchors_preset = 9
 anchor_bottom = 1.0
 offset_left = 10.0
 offset_top = 10.0
@@ -22,3 +24,17 @@ grow_horizontal = 2
 grow_vertical = 2
 max_value = 3000.0
 fill_mode = 3
+
+[node name="tutorial hight" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.07
+anchor_right = 0.07
+offset_left = 64.03
+offset_top = 285.0
+offset_right = 128.03
+offset_bottom = 349.0
+rotation = -1.5707964
+pivot_offset = Vector2(32, 31)
+texture = ExtResource("2_l8db3")
+flip_v = true

@@ -48,8 +48,27 @@ func reset():
 
 var TUTORIAL_INTRO : String = "[center]Comrade, bomb them or summet".format({})
 var TUTORIAL_MOVE : String = "[center]A or D keys to change direction".format({})
-var TUTORIAL_SPACE : String = "[center]press SPACE to drop a bomb on target".format({})
-var TUTORIAL_NOISE : String = "[center]be mindful of the noise you make, press E to turn off your engines. But be carfule you dont fly too low".format({})
+var TUTORIAL_SPACE : String = "[center]press SPACE to drop a bomb on a target".format({})
+var TUTORIAL_NOISE : String = "[center]be mindful of the noise you make, press E to turn off your engines. Dont fly too low!".format({})
 var TUTORIAL_BASE : String = "[center]return to base to collect more bombs and allies".format({})
 var TUTORIAL_ALLIES : String = "[center]allies will keep Nazi planes and spotlights off your back".format({})
 var TUTORIAL_END : String = "[center]You now know everything you'll need to defend our glorious peoples republic!".format({})
+
+var intro : bool = false
+var onto_move : bool = false
+var onto_bomb : bool = false
+var onto_noise : bool = false
+var onto_base : bool = false
+var onto_allies : bool = false
+var onto_end : bool = false
+var move_around : bool = false
+
+func reset_tutorial():
+	intro = false
+	onto_move = false
+	onto_bomb = false
+	onto_noise = false
+	onto_base = false
+	onto_allies = false
+	onto_end = false
+	move_around = false

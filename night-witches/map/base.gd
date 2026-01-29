@@ -36,6 +36,8 @@ func _spawn_plane(offset : Vector2):
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.has_method("_bomb"):
+		if GameVars.onto_base == true:
+			GameVars.onto_allies = true
 		player = body
 		GameVars.number_of_bombs = GameVars.MAX_BOMBS
 		_spawn_new_planes()
