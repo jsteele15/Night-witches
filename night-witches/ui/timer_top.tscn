@@ -1,7 +1,19 @@
-[gd_scene load_steps=3 format=3 uid="uid://bgt42kf48x0se"]
+[gd_scene load_steps=4 format=3 uid="uid://bgt42kf48x0se"]
 
 [ext_resource type="Script" uid="uid://cj6ongxufckw5" path="res://ui/timer_top.gd" id="1_30jxs"]
 [ext_resource type="PackedScene" uid="uid://xeg2gnmclwhw" path="res://ui/game_text.tscn" id="2_yi5qi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yi5qi"]
+bg_color = Color(0.28235295, 0.34117648, 0.2784314, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.73333335, 0.57254905, 0.34117648, 0.61960787)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [node name="timer top" type="Control"]
 layout_mode = 3
@@ -31,5 +43,18 @@ text = "[center]00:00"
 [node name="game timer" type="Timer" parent="."]
 wait_time = 0.1
 autostart = true
+
+[node name="Panel" type="Panel" parent="."]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -67.0
+offset_right = 68.0
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_yi5qi")
 
 [connection signal="timeout" from="game timer" to="." method="_on_game_timer_timeout"]

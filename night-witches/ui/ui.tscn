@@ -11,7 +11,6 @@
 script = ExtResource("1_ks8t7")
 
 [node name="altitude bar" parent="." instance=ExtResource("1_nb4k0")]
-anchors_preset = 9
 offset_left = 7.0
 offset_top = 83.0
 offset_right = 78.0
@@ -62,4 +61,20 @@ offset_left = 0.0
 offset_top = 9.0
 offset_bottom = -1.0
 
+[node name="restart button" type="Button" parent="main"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.522
+anchor_top = 0.5
+anchor_right = 0.522
+anchor_bottom = 0.5
+offset_left = -41.343994
+offset_top = 76.0
+offset_right = 19.656006
+offset_bottom = 107.0
+text = "restart"
+
 [node name="tutorial box" parent="." instance=ExtResource("6_obcwv")]
+
+[connection signal="pressed" from="main/restart button" to="." method="_on_restart_button_pressed"]

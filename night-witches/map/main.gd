@@ -9,7 +9,8 @@ extends Node2D
 func _ready() -> void:
 	GameVars.reset()
 	GameVars.reset_tutorial()
-
+	if is_this_tutorial == false:
+		GameVars.move_around = true
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Night witches"
-run/main_scene="uid://brlqrc2qsr4pe"
+run/main_scene="uid://6x2k4hqi0pcc"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
