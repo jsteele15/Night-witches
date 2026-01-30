@@ -9,6 +9,7 @@ var death_trig : bool = false
 var night_over_trig : bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	main = self.get_parent()
 	if main.is_this_tutorial == false:
 		tutorial_box.visible = false
 

@@ -138,7 +138,7 @@ func _bomb():
 		bombing_cooldown.start()
 		GameVars.number_of_bombs -= 1
 	else:
-		print("out of bombs")
+		main.sound_board.click_sound.play()
 		return
 
 func _crash():

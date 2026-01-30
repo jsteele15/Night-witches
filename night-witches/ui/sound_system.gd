@@ -10,6 +10,8 @@ extends Node
 @onready var alarm_siren : AudioStreamPlayer = $alarm
 #enemy guns
 @onready var gun_sounds : AudioStreamPlayer = $"enemy guns"
+#click
+@onready var click_sound : AudioStreamPlayer = $"click sound"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	main_track.play()
