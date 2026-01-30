@@ -2,6 +2,7 @@ extends Area2D
 
 @export var building_type : int = 0
 @onready var build_im : Sprite2D
+@onready var smoke : GPUParticles2D = $smooke
 enum building_types {
 	HOUSE = 0,
 	FACTORY = 1,
@@ -9,7 +10,9 @@ enum building_types {
 	none1 = 3,
 	SUPPLIES = 4,
 	non2 = 5,
-	ARRTILERY = 6
+	ARRTILERY = 6,
+	non3 = 7,
+	BARBED = 8
 }
 
 var inside : bool = false
@@ -37,6 +40,7 @@ func bombed():
 		build_im.frame +=1
 		GameVars.current_points += GameVars.SMALL_TARGET
 		destroyed = true
+		smoke.emitting = true
 
 #
 #

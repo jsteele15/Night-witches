@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cshxn2723cs4k"]
+
+[ext_resource type="PackedScene" uid="uid://brsxwq7qjdeg7" path="res://assets/particles/smooke.tscn" id="1_v0cl2"]
+[ext_resource type="Script" uid="uid://dkqskp8lialm" path="res://map/building.gd" id="1_w81xn"]
+[ext_resource type="Texture2D" uid="uid://s32wgjkaokpp" path="res://assets/img/largebuild.png" id="2_w81xn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_w81xn"]
+radius = 38.052597
+
+[node name="large building" type="Area2D"]
+script = ExtResource("1_w81xn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_w81xn")
+
+[node name="Largebuild" type="Sprite2D" parent="."]
+position = Vector2(0, 1)
+texture = ExtResource("2_w81xn")
+hframes = 2
+vframes = 2
+
+[node name="smooke" parent="." instance=ExtResource("1_v0cl2")]
+position = Vector2(-1, 1)
+emitting = false
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

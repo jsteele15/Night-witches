@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://6x2k4hqi0pcc"]
+[gd_scene load_steps=13 format=3 uid="uid://6x2k4hqi0pcc"]
 
 [ext_resource type="Script" uid="uid://dta01taeq0f5h" path="res://map/main.gd" id="1_uifiu"]
 [ext_resource type="PackedScene" uid="uid://om8skga37jqc" path="res://map/caucasus_ground_layer.tscn" id="2_77n2f"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://gbouetnjuyxf" path="res://map/house.tscn" id="4_6apgj"]
 [ext_resource type="PackedScene" uid="uid://83ok3xdif8cu" path="res://characters/enemy_plane.tscn" id="4_77n2f"]
 [ext_resource type="PackedScene" uid="uid://28grpjl81215" path="res://ui/ui.tscn" id="4_j2od4"]
+[ext_resource type="PackedScene" uid="uid://cshxn2723cs4k" path="res://map/large_building.tscn" id="5_vkc16"]
 [ext_resource type="PackedScene" uid="uid://brh5lddwy2lbe" path="res://ui/sound_system.tscn" id="10_rsjlm"]
 
 [sub_resource type="Compositor" id="Compositor_uk6jo"]
@@ -80,6 +81,51 @@ position = Vector2(1686, 1833)
 rotation = 2.2026055
 building_type = 2
 
+[node name="large building" parent="building container" instance=ExtResource("5_vkc16")]
+position = Vector2(1509, 1019)
+
+[node name="large building2" parent="building container" instance=ExtResource("5_vkc16")]
+position = Vector2(1409, 995)
+
+[node name="building16" parent="building container" instance=ExtResource("4_6apgj")]
+position = Vector2(1625.9999, 1916)
+rotation = 2.2026055
+building_type = 8
+
+[node name="building17" parent="building container" instance=ExtResource("4_6apgj")]
+position = Vector2(1748.9999, 1992)
+rotation = 1.6842427
+building_type = 8
+
+[node name="building18" parent="building container" instance=ExtResource("4_6apgj")]
+position = Vector2(1757.9999, 1771)
+rotation = 2.2026055
+building_type = 8
+
+[node name="building19" parent="building container" instance=ExtResource("4_6apgj")]
+position = Vector2(551, 923)
+rotation = 3.869395
+building_type = 8
+
+[node name="building20" parent="building container" instance=ExtResource("4_6apgj")]
+position = Vector2(2899, 838)
+building_type = 6
+
+[node name="building21" parent="building container" instance=ExtResource("4_6apgj")]
+position = Vector2(2866, 756)
+rotation = -0.64751714
+building_type = 6
+
+[node name="building22" parent="building container" instance=ExtResource("4_6apgj")]
+position = Vector2(2956, 768)
+rotation = 2.7209682
+building_type = 8
+
+[node name="building23" parent="building container" instance=ExtResource("4_6apgj")]
+position = Vector2(2779, 737)
+rotation = 0.64751714
+building_type = 8
+
 [node name="player" parent="." instance=ExtResource("2_uk6jo")]
 z_index = 10
 position = Vector2(2472, 2477)
@@ -94,11 +140,11 @@ rotation = 3.1415927
 [node name="german planes" type="Node" parent="."]
 
 [node name="enemy_plane" parent="german planes" instance=ExtResource("4_77n2f")]
-position = Vector2(1594, 1685)
+position = Vector2(1318, 1541)
 target = Vector2(1500, 1600)
 
 [node name="enemy_plane2" parent="german planes" instance=ExtResource("4_77n2f")]
-position = Vector2(2616, 1190)
+position = Vector2(2614, 1262)
 target = Vector2(2600, 1200)
 
 [node name="enemy_plane3" parent="german planes" instance=ExtResource("4_77n2f")]
@@ -106,7 +152,7 @@ position = Vector2(2319, 906)
 target = Vector2(2600, 1200)
 
 [node name="enemy_plane4" parent="german planes" instance=ExtResource("4_77n2f")]
-position = Vector2(368, 868)
+position = Vector2(764, 811)
 target = Vector2(260, 900)
 
 [node name="enemy_plane5" parent="german planes" instance=ExtResource("4_77n2f")]

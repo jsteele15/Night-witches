@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var bombing_cooldown : Timer = $"bombing cooldown"
 @onready var spotlight_cooldown : Timer = $"out spotlight cooldown"
 @onready var camera : Camera2D = $"game camera"
+@onready var smoke : GPUParticles2D = $smooke
 var speed : float = 300.0
 const MAX_SPEED : float = 300.0
 const BOTTOM_SPEED : float = 200.0
@@ -26,9 +27,14 @@ var engine_on : bool = true
 #for visibility
 var fired_recently : bool = false
 var in_spotlight : bool = false
-
+var smoke_trig : bool = false
 func _physics_process(delta: float) -> void:
 	if GameVars.player_alive == false:
+		if smoke_trig == false:
+			main.sound_board.explosion_sound()
+			plane_image.visible = false
+			smoke.emitting = true
+			smoke_trig = true
 		return
 	
 	if main.is_this_tutorial == true and GameVars.move_around == false:
@@ -47,7 +53,7 @@ func _input(event: InputEvent) -> void:
 		right = true
 	
 	if event.is_action_pressed("bomb"):
-		main.sound_board.explosion_sound()
+		
 		_bomb()
 	
 	if event.is_action_released("left"):
@@ -125,6 +131,7 @@ func _decide_vis() -> int:
 func _bomb():
 	"""check how many bomb we have left, if its zero, return"""
 	if GameVars.number_of_bombs > -1:
+		main.sound_board.explosion_sound()
 		main.building_container.bombing()
 		camera.shake()
 		fired_recently = true

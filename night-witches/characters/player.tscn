@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bg74y0aekh2w4"]
+[gd_scene load_steps=7 format=3 uid="uid://bg74y0aekh2w4"]
 
 [ext_resource type="Script" uid="uid://cfhan2iushlcx" path="res://characters/player.gd" id="1_3eadt"]
 [ext_resource type="Texture2D" uid="uid://0enhcdyk0peh" path="res://assets/img/plane.png" id="1_dnjla"]
 [ext_resource type="PackedScene" uid="uid://c2su4i1dxoh6n" path="res://ui/game_camera.tscn" id="3_tory2"]
+[ext_resource type="PackedScene" uid="uid://brsxwq7qjdeg7" path="res://assets/particles/smooke.tscn" id="4_x0jl3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3eadt"]
 radius = 30.149628
@@ -35,6 +36,9 @@ one_shot = true
 [node name="out spotlight cooldown" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
+
+[node name="smooke" parent="." instance=ExtResource("4_x0jl3")]
+emitting = false
 
 [connection signal="timeout" from="bombing cooldown" to="." method="_on_bombing_cooldown_timeout"]
 [connection signal="timeout" from="out spotlight cooldown" to="." method="_on_out_spotlight_cooldown_timeout"]

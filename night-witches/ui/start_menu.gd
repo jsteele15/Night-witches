@@ -6,6 +6,8 @@ extends Node2D
 @onready var credits_but : TextureButton = $"start menu canvas/Control/sides screen container/left side container/VBoxContainer/credits"
 @onready var side_text : RichTextLabel = $"start menu canvas/Control/sides screen container/side info"
 @onready var click_sound : AudioStreamPlayer = $"click sound"
+@onready var plane : TextureRect = $"start menu canvas/plane rect"
+@onready var plane2 : TextureRect = $"start menu canvas/plane rect2"
 var credit_text : String = "[center]
 Catgaming - Art
 
@@ -16,12 +18,15 @@ Slimehunter - Music
 Fonts - Trajanus Roman by Roger White".format({})
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	$"main track".play()
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	plane.position.y -= 5
+	plane2.position.y -= 5
+	
 
 
 func _on_play_pressed() -> void:

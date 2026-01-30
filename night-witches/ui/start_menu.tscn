@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://yjevycyx5wa6"]
+[gd_scene load_steps=21 format=3 uid="uid://yjevycyx5wa6"]
 
 [ext_resource type="Script" uid="uid://wa5xu0eyn8a2" path="res://ui/start_menu.gd" id="1_kw4xl"]
 [ext_resource type="Texture2D" uid="uid://budhr3wt51jx4" path="res://assets/img/ui/play base but.png" id="2_lb6g3"]
+[ext_resource type="Texture2D" uid="uid://dj8m2nuufo1qm" path="res://assets/img/background.png" id="2_lc0y3"]
 [ext_resource type="Texture2D" uid="uid://4oa0et4wv3jp" path="res://assets/img/ui/play base down.png" id="3_fl3bm"]
 [ext_resource type="Texture2D" uid="uid://c6s4ve0bdi483" path="res://assets/img/ui/play base over.png" id="4_ddqrn"]
 [ext_resource type="Texture2D" uid="uid://c07liexe58eov" path="res://assets/img/ui/tut base but.png" id="5_dr3nq"]
@@ -15,6 +16,9 @@
 [ext_resource type="Texture2D" uid="uid://23a4588p37v5" path="res://assets/img/ui/cred base over.png" id="13_4wm4l"]
 [ext_resource type="PackedScene" uid="uid://xeg2gnmclwhw" path="res://ui/game_text.tscn" id="14_r3a5d"]
 [ext_resource type="AudioStream" uid="uid://cu3f7dp5kyntv" path="res://assets/music/fx/UI_Click OS R1.mp3" id="15_4wm4l"]
+[ext_resource type="Texture2D" uid="uid://0enhcdyk0peh" path="res://assets/img/plane.png" id="16_gkhny"]
+[ext_resource type="AudioStream" uid="uid://bnlow07rrw41" path="res://assets/music/tracks/Bombing Run R1.ogg" id="17_gkhny"]
+[ext_resource type="Texture2D" uid="uid://jib8ojtsjoih" path="res://assets/img/german plane.png" id="17_vhcxx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0kfsi"]
 bg_color = Color(0.28235295, 0.34117648, 0.2784314, 1)
@@ -32,6 +36,34 @@ corner_radius_bottom_left = 5
 script = ExtResource("1_kw4xl")
 
 [node name="start menu canvas" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="start menu canvas"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.7137255, 0.5921569, 0.41960785, 1)
+
+[node name="TextureRect" type="TextureRect" parent="start menu canvas"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+texture = ExtResource("2_lc0y3")
+expand_mode = 1
+
+[node name="night" type="ColorRect" parent="start menu canvas"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.050980393, 0.050980393, 0.050980393, 0.3372549)
 
 [node name="Control" type="Control" parent="start menu canvas"]
 layout_mode = 3
@@ -133,8 +165,35 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_0kfsi")
 
+[node name="plane rect" type="TextureRect" parent="start menu canvas"]
+anchors_preset = -1
+anchor_left = 0.53000003
+anchor_top = 0.5
+anchor_right = 0.53000003
+anchor_bottom = 0.5
+offset_left = -14.560059
+offset_top = 339.0
+offset_right = 25.439941
+offset_bottom = 379.0
+texture = ExtResource("16_gkhny")
+
+[node name="plane rect2" type="TextureRect" parent="start menu canvas"]
+anchors_preset = -1
+anchor_left = 0.53000003
+anchor_top = 0.5
+anchor_right = 0.53000003
+anchor_bottom = 0.5
+offset_left = 57.43994
+offset_top = 454.0
+offset_right = 121.43994
+offset_bottom = 518.0
+texture = ExtResource("17_vhcxx")
+
 [node name="click sound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("15_4wm4l")
+
+[node name="main track" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_gkhny")
 
 [connection signal="pressed" from="start menu canvas/Control/sides screen container/left side container/VBoxContainer/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="start menu canvas/Control/sides screen container/left side container/VBoxContainer/tutorial" to="." method="_on_tutorial_pressed"]

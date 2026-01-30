@@ -51,7 +51,7 @@ func reset():
 	current_hight = 3000
 	number_of_bombs = 4
 
-var TUTORIAL_INTRO : String = "[center]Comrade, bomb them or summet".format({})
+var TUTORIAL_INTRO : String = "[center]Comrade, we must all do our part to throw out the invaders".format({})
 var TUTORIAL_MOVE : String = "[center]A or D keys to change direction".format({})
 var TUTORIAL_SPACE : String = "[center]press SPACE to drop a bomb on a target".format({})
 var TUTORIAL_NOISE : String = "[center]be mindful of the noise you make, press E to turn off your engines. Dont fly too low!".format({})
