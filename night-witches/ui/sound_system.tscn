@@ -1,10 +1,50 @@
-[gd_scene load_steps=3 format=3 uid="uid://brh5lddwy2lbe"]
+[gd_scene load_steps=12 format=3 uid="uid://brh5lddwy2lbe"]
 
 [ext_resource type="Script" uid="uid://bl1jubbgq1ulu" path="res://ui/sound_system.gd" id="1_mjh48"]
 [ext_resource type="AudioStream" uid="uid://bnlow07rrw41" path="res://assets/music/tracks/Bombing Run R1.ogg" id="2_wy3wg"]
+[ext_resource type="AudioStream" uid="uid://pr4qn61wn068" path="res://assets/music/fx/Plane_Glide LOOP R2.mp3" id="3_l00kk"]
+[ext_resource type="AudioStream" uid="uid://drgym8kri0gbk" path="res://assets/music/fx/Plane_Engine LOOP R1.mp3" id="4_803kv"]
+[ext_resource type="AudioStream" uid="uid://bnbv8px0n27le" path="res://assets/music/fx/Plane_Bomb_1 OS R1.mp3" id="5_ayfm6"]
+[ext_resource type="AudioStream" uid="uid://qjr1rh3o4cmj" path="res://assets/music/fx/Plane_Bomb_2 OS R1.mp3" id="6_ipuqa"]
+[ext_resource type="AudioStream" uid="uid://bf1ycc0e3jayt" path="res://assets/music/fx/Plane_Bomb_3 OS R1.mp3" id="7_lck3t"]
+[ext_resource type="AudioStream" uid="uid://cfjak75uu7p5u" path="res://assets/music/fx/Plane_Bomb_4 OS R1.mp3" id="8_25rgg"]
+[ext_resource type="AudioStream" uid="uid://cu3f7dp5kyntv" path="res://assets/music/fx/UI_Click OS R1.mp3" id="9_ipuqa"]
+[ext_resource type="AudioStream" uid="uid://dfi1eq2t7dv3l" path="res://assets/music/fx/Enemy_Alarm LOOP R1.mp3" id="10_25rgg"]
+[ext_resource type="AudioStream" uid="uid://cycveqb0u5ef2" path="res://assets/music/fx/Enemy_Gun LOOP R1.mp3" id="11_hyqtt"]
 
 [node name="sound system" type="Node"]
 script = ExtResource("1_mjh48")
 
 [node name="main track" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_wy3wg")
+
+[node name="plane sounds" type="Node" parent="."]
+
+[node name="glide" type="AudioStreamPlayer" parent="plane sounds"]
+stream = ExtResource("3_l00kk")
+
+[node name="engine on" type="AudioStreamPlayer" parent="plane sounds"]
+stream = ExtResource("4_803kv")
+
+[node name="explosions" type="Node" parent="."]
+
+[node name="exp 1" type="AudioStreamPlayer" parent="explosions"]
+stream = ExtResource("5_ayfm6")
+
+[node name="exp 2" type="AudioStreamPlayer" parent="explosions"]
+stream = ExtResource("6_ipuqa")
+
+[node name="exp 3" type="AudioStreamPlayer" parent="explosions"]
+stream = ExtResource("7_lck3t")
+
+[node name="exp 4" type="AudioStreamPlayer" parent="explosions"]
+stream = ExtResource("8_25rgg")
+
+[node name="click sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_ipuqa")
+
+[node name="alarm" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_25rgg")
+
+[node name="enemy guns" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_hyqtt")

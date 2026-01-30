@@ -47,6 +47,7 @@ func _input(event: InputEvent) -> void:
 		right = true
 	
 	if event.is_action_pressed("bomb"):
+		main.sound_board.explosion_sound()
 		_bomb()
 	
 	if event.is_action_released("left"):
@@ -58,8 +59,10 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("engine"):
 		if engine_on == true:
 			engine_on = false
+			
 		else:
 			engine_on = true
+		main.sound_board.switch_engine(engine_on)
 
 #
 #

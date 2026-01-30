@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bf1ycc0e3jayt"
+path="res://.godot/imported/Plane_Bomb_3 OS R1.mp3-d15127a6ea39721ef1984e5d27ac5e50.mp3str"
+
+[deps]
+
+source_file="res://assets/music/fx/Plane_Bomb_3 OS R1.mp3"
+dest_files=["res://.godot/imported/Plane_Bomb_3 OS R1.mp3-d15127a6ea39721ef1984e5d27ac5e50.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -7,6 +7,7 @@ var bottom_speed: float = 80.0
 
 #give it a hunting spot
 @export var target = Vector2(500, 500)
+@onready var plane_im : Sprite2D = $Plane
 var start_target : Vector2 
 var speed : float
 var locked_on : bool = false
@@ -28,6 +29,8 @@ func _move(delta : float):
 	if target is not Vector2:
 		to_target = (target.global_position - global_position).angle()
 		speed = max_speed 
+		self.rotation = to_target
+		"""
 		if locked_on == false:
 			if self.rotation_degrees > target.rotation_degrees:
 				self.rotation_degrees -= 5
@@ -36,13 +39,16 @@ func _move(delta : float):
 			if self.rotation_degrees == target.rotation_degrees:
 				locked_on = true
 		if locked_on == true:
-			self.rotation_degrees =  target.rotation_degrees
-		velocity = transform.y * speed
+			"""
+		#velocity = -transform.y * speed
+		var direction = (target.global_position - global_position).normalized()
+		velocity = direction * speed
+		plane_im.rotation_degrees =  target.rotation_degrees+180
 		move_and_slide()
 		return
 	
 	#TODO change this up for actual patroling behaviour
-
+	plane_im.rotation_degrees = 180
 	to_target = (target - global_position).angle()
 
 	var current = rotation

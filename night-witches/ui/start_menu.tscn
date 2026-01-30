@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://yjevycyx5wa6"]
+[gd_scene load_steps=17 format=3 uid="uid://yjevycyx5wa6"]
 
 [ext_resource type="Script" uid="uid://wa5xu0eyn8a2" path="res://ui/start_menu.gd" id="1_kw4xl"]
 [ext_resource type="Texture2D" uid="uid://budhr3wt51jx4" path="res://assets/img/ui/play base but.png" id="2_lb6g3"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cgh6dbciqo37h" path="res://assets/img/ui/cred base down.png" id="12_r3a5d"]
 [ext_resource type="Texture2D" uid="uid://23a4588p37v5" path="res://assets/img/ui/cred base over.png" id="13_4wm4l"]
 [ext_resource type="PackedScene" uid="uid://xeg2gnmclwhw" path="res://ui/game_text.tscn" id="14_r3a5d"]
+[ext_resource type="AudioStream" uid="uid://cu3f7dp5kyntv" path="res://assets/music/fx/UI_Click OS R1.mp3" id="15_4wm4l"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0kfsi"]
 bg_color = Color(0.28235295, 0.34117648, 0.2784314, 1)
@@ -106,6 +107,7 @@ layout_mode = 2
 size_flags_vertical = 3
 
 [node name="side info" parent="start menu canvas/Control/sides screen container" instance=ExtResource("14_r3a5d")]
+visible = false
 clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 3
@@ -131,6 +133,10 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_0kfsi")
 
+[node name="click sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_4wm4l")
+
 [connection signal="pressed" from="start menu canvas/Control/sides screen container/left side container/VBoxContainer/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="start menu canvas/Control/sides screen container/left side container/VBoxContainer/tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="pressed" from="start menu canvas/Control/sides screen container/left side container/VBoxContainer/history" to="." method="_on_history_pressed"]
 [connection signal="pressed" from="start menu canvas/Control/sides screen container/left side container/VBoxContainer/credits" to="." method="_on_credits_pressed"]
