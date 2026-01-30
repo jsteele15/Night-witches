@@ -4,7 +4,12 @@ extends Area2D
 @onready var build_im : Sprite2D
 enum building_types {
 	HOUSE = 0,
-	FACTORY = 1
+	FACTORY = 1,
+	TANK = 2,
+	none1 = 3,
+	SUPPLIES = 4,
+	non2 = 5,
+	ARRTILERY = 6
 }
 
 var inside : bool = false
@@ -14,6 +19,7 @@ var destroyed : bool = false
 func _ready() -> void:
 	#such a dumb fucking way of doing this
 	build_im = self.get_child(1)
+	build_im.frame = building_type
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -28,7 +34,7 @@ func _process(delta: float) -> void:
 
 func bombed():
 	if destroyed == false:
-		build_im.frame = 1
+		build_im.frame +=1
 		GameVars.current_points += GameVars.SMALL_TARGET
 		destroyed = true
 

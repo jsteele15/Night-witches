@@ -1,5 +1,10 @@
-[gd_scene format=3 uid="uid://brh5lddwy2lbe"]
+[gd_scene load_steps=3 format=3 uid="uid://brh5lddwy2lbe"]
+
+[ext_resource type="Script" uid="uid://bl1jubbgq1ulu" path="res://ui/sound_system.gd" id="1_mjh48"]
+[ext_resource type="AudioStream" uid="uid://bnlow07rrw41" path="res://assets/music/tracks/Bombing Run R1.ogg" id="2_wy3wg"]
 
 [node name="sound system" type="Node"]
+script = ExtResource("1_mjh48")
 
 [node name="main track" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_wy3wg")

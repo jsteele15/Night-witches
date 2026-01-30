@@ -10,7 +10,7 @@ radius = 95.02105
 radius = 177.00282
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o4frs"]
-radius = 275.0
+radius = 450.02777
 
 [node name="enemy_plane" type="CharacterBody2D"]
 script = ExtResource("1_j6yx1")

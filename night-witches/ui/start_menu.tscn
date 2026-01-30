@@ -1,6 +1,31 @@
-[gd_scene load_steps=2 format=3 uid="uid://yjevycyx5wa6"]
+[gd_scene load_steps=16 format=3 uid="uid://yjevycyx5wa6"]
 
 [ext_resource type="Script" uid="uid://wa5xu0eyn8a2" path="res://ui/start_menu.gd" id="1_kw4xl"]
+[ext_resource type="Texture2D" uid="uid://budhr3wt51jx4" path="res://assets/img/ui/play base but.png" id="2_lb6g3"]
+[ext_resource type="Texture2D" uid="uid://4oa0et4wv3jp" path="res://assets/img/ui/play base down.png" id="3_fl3bm"]
+[ext_resource type="Texture2D" uid="uid://c6s4ve0bdi483" path="res://assets/img/ui/play base over.png" id="4_ddqrn"]
+[ext_resource type="Texture2D" uid="uid://c07liexe58eov" path="res://assets/img/ui/tut base but.png" id="5_dr3nq"]
+[ext_resource type="Texture2D" uid="uid://cmu24tyoejnla" path="res://assets/img/ui/tut base down.png" id="6_lbgow"]
+[ext_resource type="Texture2D" uid="uid://ee4m3fa7sc0t" path="res://assets/img/ui/tut base over.png" id="7_eh4yk"]
+[ext_resource type="Texture2D" uid="uid://bcpu4fg8bx56" path="res://assets/img/ui/hist base but.png" id="8_lnpn0"]
+[ext_resource type="Texture2D" uid="uid://d3uvtjjj0ecf3" path="res://assets/img/ui/hist base down.png" id="9_dfrpb"]
+[ext_resource type="Texture2D" uid="uid://sbm3t11236q8" path="res://assets/img/ui/hist base over.png" id="10_sdwtg"]
+[ext_resource type="Texture2D" uid="uid://du8riuajpwc10" path="res://assets/img/ui/cred base but.png" id="11_0kfsi"]
+[ext_resource type="Texture2D" uid="uid://cgh6dbciqo37h" path="res://assets/img/ui/cred base down.png" id="12_r3a5d"]
+[ext_resource type="Texture2D" uid="uid://23a4588p37v5" path="res://assets/img/ui/cred base over.png" id="13_4wm4l"]
+[ext_resource type="PackedScene" uid="uid://xeg2gnmclwhw" path="res://ui/game_text.tscn" id="14_r3a5d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0kfsi"]
+bg_color = Color(0.28235295, 0.34117648, 0.2784314, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.73333335, 0.57254905, 0.34117648, 0.61960787)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [node name="start menu" type="Node2D"]
 script = ExtResource("1_kw4xl")
@@ -44,36 +69,68 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="play" type="Button" parent="start menu canvas/Control/sides screen container/left side container/VBoxContainer"]
+[node name="play" type="TextureButton" parent="start menu canvas/Control/sides screen container/left side container/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 3
-text = "play"
+texture_normal = ExtResource("2_lb6g3")
+texture_pressed = ExtResource("3_fl3bm")
+texture_hover = ExtResource("4_ddqrn")
 
-[node name="tutorial" type="Button" parent="start menu canvas/Control/sides screen container/left side container/VBoxContainer"]
+[node name="tutorial" type="TextureButton" parent="start menu canvas/Control/sides screen container/left side container/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 3
-text = "tutorial
-"
+texture_normal = ExtResource("5_dr3nq")
+texture_pressed = ExtResource("6_lbgow")
+texture_hover = ExtResource("7_eh4yk")
 
-[node name="history" type="Button" parent="start menu canvas/Control/sides screen container/left side container/VBoxContainer"]
+[node name="history" type="TextureButton" parent="start menu canvas/Control/sides screen container/left side container/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 3
-text = "history"
+texture_normal = ExtResource("8_lnpn0")
+texture_pressed = ExtResource("9_dfrpb")
+texture_hover = ExtResource("10_sdwtg")
 
-[node name="credits" type="Button" parent="start menu canvas/Control/sides screen container/left side container/VBoxContainer"]
+[node name="credits" type="TextureButton" parent="start menu canvas/Control/sides screen container/left side container/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 3
-text = "credits
-"
+texture_normal = ExtResource("11_0kfsi")
+texture_pressed = ExtResource("12_r3a5d")
+texture_hover = ExtResource("13_4wm4l")
 
 [node name="space filler2" type="Control" parent="start menu canvas/Control/sides screen container/left side container"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="side info" type="RichTextLabel" parent="start menu canvas/Control/sides screen container"]
+[node name="side info" parent="start menu canvas/Control/sides screen container" instance=ExtResource("14_r3a5d")]
+clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_constants/line_separation = 20
+theme_override_constants/paragraph_separation = 30
+text = "[center]
+ Whatever
+
+you fucking say buddy
+
+i juist sdfofiahgdbu
+
+anyway"
+
+[node name="Panel" type="Panel" parent="start menu canvas/Control/sides screen container/side info"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0kfsi")
 
 [connection signal="pressed" from="start menu canvas/Control/sides screen container/left side container/VBoxContainer/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="start menu canvas/Control/sides screen container/left side container/VBoxContainer/tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="pressed" from="start menu canvas/Control/sides screen container/left side container/VBoxContainer/credits" to="." method="_on_credits_pressed"]
