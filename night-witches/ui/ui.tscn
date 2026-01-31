@@ -12,11 +12,12 @@
 script = ExtResource("1_ks8t7")
 
 [node name="altitude bar" parent="." instance=ExtResource("1_nb4k0")]
-offset_left = 7.0
-offset_top = 83.0
-offset_right = 78.0
-offset_bottom = -13.0
+anchors_preset = 2
+anchor_top = 1.0
+offset_top = -576.0
+offset_bottom = -24.0
 grow_horizontal = 1
+grow_vertical = 0
 
 [node name="timer top" parent="." instance=ExtResource("3_wl5ax")]
 offset_left = 2.0

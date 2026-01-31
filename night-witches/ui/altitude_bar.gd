@@ -1,6 +1,6 @@
 extends Control
 @onready var ui : CanvasLayer = self.get_parent()
-@onready var alt_bar : ProgressBar = $ProgressBar
+@onready var alt_bar : TextureProgressBar = $ProgressBar
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	alt_bar.step = GameVars.SPEED_LOSE_ALTITUDE
