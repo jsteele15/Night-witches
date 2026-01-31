@@ -12,40 +12,40 @@ var start_target : Vector2
 var speed : float
 var locked_on : bool = false
 
+var in_one : bool = false
+var in_two : bool = false
+var in_three : bool = false
+
+#two states patr or hunt
+var state : String = "patr"
+var circling : bool = false
+var radius :int = 150
+var angle : float = 0.0
+var acceleration : int = 2000
+
 func _ready() -> void:
 	start_target = target
 
 func _physics_process(delta: float) -> void:
-	_move(delta)
+	
+	state = _decide_if_hunting()
+	
+	if state == "patr":
+		_move(delta)
+	if state == "hunt":
+		_hunt_move(delta)
+	
+
+
 
 func _move(delta : float):
 	var to_target
 	
 	if not target:
 		target = start_target
-		locked_on = false
+
 		return
 	
-	if target is not Vector2:
-		to_target = (target.global_position - global_position).angle()
-		speed = max_speed 
-		self.rotation = to_target
-		"""
-		if locked_on == false:
-			if self.rotation_degrees > target.rotation_degrees:
-				self.rotation_degrees -= 5
-			if self.rotation_degrees < target.rotation_degrees:
-				self.rotation_degrees += 5
-			if self.rotation_degrees == target.rotation_degrees:
-				locked_on = true
-		if locked_on == true:
-			"""
-		#velocity = -transform.y * speed
-		var direction = (target.global_position - global_position).normalized()
-		velocity = direction * speed
-		plane_im.rotation_degrees =  target.rotation_degrees+180
-		move_and_slide()
-		return
 	
 	#TODO change this up for actual patroling behaviour
 	plane_im.rotation_degrees = 180
@@ -62,6 +62,21 @@ func _move(delta : float):
 	# --- MOVE FORWARD IN THE DIRECTION WE'RE FACING ---
 	velocity = transform.y * speed
 	move_and_slide()
+	print("in here")
+
+func _hunt_move(delta : float):
+	self.rotation_degrees = target.rotation_degrees
+	if circling == false:
+		var target_position = target.global_position + Vector2(radius * cos(angle), radius * sin(angle))
+		velocity = velocity.move_toward(target_position - global_position, acceleration * delta).normalized() * speed
+		move_and_slide()
+		if position.distance_to(target.position) < radius:
+			circling = true
+	else:
+		velocity = (self.global_position - target.global_position).normalized().rotated(PI/2) * speed
+		move_and_slide()
+		if position.distance_to(target.position) > radius:
+			circling = false
 
 func _choose_plane_to_hunt(body : Node2D):
 	if GameVars.allied_planes.get_child_count() > 0:
@@ -79,15 +94,45 @@ func _choose_plane_to_hunt(body : Node2D):
 		GameVars.persuer = self
 		GameVars.being_persued = true
 
+func _decide_if_hunting() -> String:
+	#doing this backwards to give priority to the outside one? not sure if that makes sens
+	if GameVars.current_sus >= 2 and in_three == true:
+
+		return "hunt"
+	
+	if GameVars.current_sus >= 1 and in_two == true:
+
+		return "hunt"
+		
+	if GameVars.current_sus >= 0 and in_one == true:
+
+		return "hunt"
+	
+	if target is not Vector2 and is_instance_valid(target): # so its an enemy plane
+		return "hunt"
+	
+
+	
+	return "patr"
+#
+#
+#	Signals
+#
+#
+
 func _on_plane_area_low_body_entered(body: Node2D) -> void:
 	if body.has_method("_bomb"):
+		in_one = true 
 		if target is CharacterBody2D:
 			return
 		_choose_plane_to_hunt(body)
 
 
 func _on_plane_area_mid_body_entered(body: Node2D) -> void:
+	if body.has_method("_bomb"):
+		in_two = true
 	if GameVars.current_sus == 1:
+		
 		if body.has_method("_bomb"):
 			if target is CharacterBody2D:
 				return
@@ -95,8 +140,27 @@ func _on_plane_area_mid_body_entered(body: Node2D) -> void:
 
 
 func _on_plane_area_far_body_entered(body: Node2D) -> void:
+	if body.has_method("_bomb"):
+		in_three = true
+		
 	if GameVars.current_sus >= 2:
 		if body.has_method("_bomb"):
+			in_three = true
 			if target is CharacterBody2D:
 				return
 			_choose_plane_to_hunt(body)
+
+
+func _on_plane_area_low_body_exited(body: Node2D) -> void:
+	if body.has_method("_bomb"):
+		in_one = false
+
+
+func _on_plane_area_mid_body_exited(body: Node2D) -> void:
+	if body.has_method("_bomb"):
+		in_two = false
+
+
+func _on_plane_area_far_body_exited(body: Node2D) -> void:
+	if body.has_method("_bomb"):
+		in_three = false

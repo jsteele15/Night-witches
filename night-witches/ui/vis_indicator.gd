@@ -9,10 +9,10 @@ var col_by_vis = [{"min": 2, "vis": GameVars.RED},
 {"min": 1, "vis": GameVars.YELLOW},
 {"min": 0, "vis": GameVars.GREY}]
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	if ui.main.is_this_tutorial == false:
-		$"tutorial noise".visible = false
-		$"tutorial bombs".visible = false
+#func _ready() -> void:
+	#if ui.main.is_this_tutorial == false:
+		#$"tutorial noise".visible = false
+		#$"tutorial bombs".visible = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

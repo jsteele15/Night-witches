@@ -18,11 +18,10 @@ func _ready() -> void:
 	GameVars.allied_planes = self.get_parent()
 	
 func _physics_process(delta: float) -> void:
-	_move(delta)
-	
-	#super fucking dirty implementation but itll do i guess
 	if player != null:
+		_move(delta)
 		_change_hight()
+		
 	if player == null:
 		player = self.get_parent().get_parent().player
 		
@@ -68,14 +67,7 @@ func _move(delta: float):
 		#put the kill plane thing here for expediency
 		_kill_plane()
 	else:
-		if right == true and left == true:
-			pass
-		else:
-			#rotate the plane 
-			if right == true:
-				self.rotation_degrees += 5 
-			if left == true:
-				self.rotation_degrees -= 5 
+		self.rotation_degrees = player.rotation_degrees
 		
 		#TODO lerp through these
 		if engine_on == true:

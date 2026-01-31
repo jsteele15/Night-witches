@@ -36,5 +36,8 @@ debug_color = Color(0.94847864, 4.3317677e-06, 0.58047587, 0.41960785)
 shape = SubResource("CircleShape2D_o4frs")
 
 [connection signal="body_entered" from="plane area low" to="." method="_on_plane_area_low_body_entered"]
+[connection signal="body_exited" from="plane area low" to="." method="_on_plane_area_low_body_exited"]
 [connection signal="body_entered" from="plane area mid" to="." method="_on_plane_area_mid_body_entered"]
+[connection signal="body_exited" from="plane area mid" to="." method="_on_plane_area_mid_body_exited"]
 [connection signal="body_entered" from="plane area far" to="." method="_on_plane_area_far_body_entered"]
+[connection signal="body_exited" from="plane area far" to="." method="_on_plane_area_far_body_exited"]
