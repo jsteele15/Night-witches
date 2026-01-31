@@ -2,7 +2,7 @@ extends Node
 
 #stuff related to the overall game
 var allied_planes : Node 
-
+var player : CharacterBody2D 
 #stuff related to the player
 #living status
 var player_alive : bool = true

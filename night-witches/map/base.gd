@@ -43,6 +43,7 @@ func _on_body_entered(body: Node2D) -> void:
 		player = body
 		GameVars.number_of_bombs = GameVars.MAX_BOMBS
 		_spawn_new_planes()
+		return
 		if GameVars.being_persued == true:
 			GameVars.being_persued = false
 			GameVars.persuer.target = GameVars.allied_planes.get_child(0)

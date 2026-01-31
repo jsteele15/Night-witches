@@ -28,6 +28,10 @@ var engine_on : bool = true
 var fired_recently : bool = false
 var in_spotlight : bool = false
 var smoke_trig : bool = false
+
+func _ready() -> void:
+	GameVars.player = self
+
 func _physics_process(delta: float) -> void:
 	if GameVars.player_alive == false:
 		if smoke_trig == false:

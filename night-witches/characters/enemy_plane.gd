@@ -62,9 +62,10 @@ func _move(delta : float):
 	# --- MOVE FORWARD IN THE DIRECTION WE'RE FACING ---
 	velocity = transform.y * speed
 	move_and_slide()
-	print("in here")
 
 func _hunt_move(delta : float):
+	if target is Vector2:
+		return
 	self.rotation_degrees = target.rotation_degrees
 	if circling == false:
 		var target_position = target.global_position + Vector2(radius * cos(angle), radius * sin(angle))
@@ -78,38 +79,48 @@ func _hunt_move(delta : float):
 		if position.distance_to(target.position) > radius:
 			circling = false
 
-func _choose_plane_to_hunt(body : Node2D):
+func _choose_plane_to_hunt():
+	#we want to only call this once when its pick a target
+	#i need to change this in a way that doesnt
 	if GameVars.allied_planes.get_child_count() > 0:
 		#then hunt a plane
-		print("here")
 		for p in GameVars.allied_planes.get_children():
 			if p.run_away == false:
 				target = p
 				p.run_away = true
 				GameVars.being_persued = false
+				GameVars.persuer = null
 				break
 	else:
 		#hunt the player
-		target = body
+		target = GameVars.player
 		GameVars.persuer = self
 		GameVars.being_persued = true
 
 func _decide_if_hunting() -> String:
 	#doing this backwards to give priority to the outside one? not sure if that makes sens
+	
+	if target is not Vector2 and is_instance_valid(target): # so its an enemy plane
+		if target == GameVars.player:
+			_choose_plane_to_hunt()
+		return "hunt"
+	
 	if GameVars.current_sus >= 2 and in_three == true:
-
+		if target is Vector2:
+			_choose_plane_to_hunt()
 		return "hunt"
 	
 	if GameVars.current_sus >= 1 and in_two == true:
-
+		if target is Vector2:
+			_choose_plane_to_hunt()
 		return "hunt"
 		
 	if GameVars.current_sus >= 0 and in_one == true:
-
+		if target is Vector2:
+			_choose_plane_to_hunt()
 		return "hunt"
 	
-	if target is not Vector2 and is_instance_valid(target): # so its an enemy plane
-		return "hunt"
+	
 	
 
 	
@@ -123,32 +134,18 @@ func _decide_if_hunting() -> String:
 func _on_plane_area_low_body_entered(body: Node2D) -> void:
 	if body.has_method("_bomb"):
 		in_one = true 
-		if target is CharacterBody2D:
-			return
-		_choose_plane_to_hunt(body)
 
 
 func _on_plane_area_mid_body_entered(body: Node2D) -> void:
 	if body.has_method("_bomb"):
 		in_two = true
-	if GameVars.current_sus == 1:
-		
-		if body.has_method("_bomb"):
-			if target is CharacterBody2D:
-				return
-			_choose_plane_to_hunt(body)
+
 
 
 func _on_plane_area_far_body_entered(body: Node2D) -> void:
 	if body.has_method("_bomb"):
 		in_three = true
-		
-	if GameVars.current_sus >= 2:
-		if body.has_method("_bomb"):
-			in_three = true
-			if target is CharacterBody2D:
-				return
-			_choose_plane_to_hunt(body)
+
 
 
 func _on_plane_area_low_body_exited(body: Node2D) -> void:
