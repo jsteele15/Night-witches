@@ -5,6 +5,9 @@ const STARTING_POINT_1 : Vector2 = Vector2(55, -90)
 const STARTING_POINT_2 : Vector2 = Vector2(-55, -90)
 var player : CharacterBody2D 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+func _ready() -> void:
+	GameVars.friendly_buildings = self.get_parent()
+
 func _process(delta: float) -> void:
 	pass
 
@@ -44,7 +47,3 @@ func _on_body_entered(body: Node2D) -> void:
 		GameVars.number_of_bombs = GameVars.MAX_BOMBS
 		_spawn_new_planes()
 		return
-		if GameVars.being_persued == true:
-			GameVars.being_persued = false
-			GameVars.persuer.target = GameVars.allied_planes.get_child(0)
-			GameVars.persuer = null

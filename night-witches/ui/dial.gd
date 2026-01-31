@@ -14,4 +14,11 @@ func _physics_process(delta: float) -> void:
 		self.global_position = GameVars.player.position
 		
 	#get a list of all the bases, and then angle it towers that base
-	#main.ground_layer.get_node()
+	if GameVars.friendly_buildings.get_child_count() > 1:
+		pass
+		#for c in GameVars.friendly_buildings.get_children():
+			#if c.position.distance_to(c.position) #this works, just need to figure out the said logic
+		
+	else:
+
+		look_at(GameVars.friendly_buildings.get_child(0).global_position)
