@@ -87,6 +87,7 @@ layout_mode = 2
 texture = ExtResource("3_b0elr")
 
 [node name="tutorial noise" type="TextureRect" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 39.0
 offset_top = 32.000004
@@ -97,6 +98,7 @@ pivot_offset = Vector2(32, 31)
 texture = ExtResource("4_gdx3j")
 
 [node name="tutorial bombs" type="TextureRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.07

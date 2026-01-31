@@ -17,8 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://xeg2gnmclwhw" path="res://ui/game_text.tscn" id="14_r3a5d"]
 [ext_resource type="AudioStream" uid="uid://cu3f7dp5kyntv" path="res://assets/music/fx/UI_Click OS R1.mp3" id="15_4wm4l"]
 [ext_resource type="Texture2D" uid="uid://0enhcdyk0peh" path="res://assets/img/plane.png" id="16_gkhny"]
-[ext_resource type="AudioStream" uid="uid://bnlow07rrw41" path="res://assets/music/tracks/Bombing Run R1.ogg" id="17_gkhny"]
 [ext_resource type="Texture2D" uid="uid://jib8ojtsjoih" path="res://assets/img/german plane.png" id="17_vhcxx"]
+[ext_resource type="AudioStream" uid="uid://dqya5u40ey8ff" path="res://assets/music/tracks/The Night Witches R2.mp3" id="19_vhcxx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0kfsi"]
 bg_color = Color(0.28235295, 0.34117648, 0.2784314, 1)
@@ -193,7 +193,7 @@ texture = ExtResource("17_vhcxx")
 stream = ExtResource("15_4wm4l")
 
 [node name="main track" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("17_gkhny")
+stream = ExtResource("19_vhcxx")
 
 [connection signal="pressed" from="start menu canvas/Control/sides screen container/left side container/VBoxContainer/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="start menu canvas/Control/sides screen container/left side container/VBoxContainer/tutorial" to="." method="_on_tutorial_pressed"]
