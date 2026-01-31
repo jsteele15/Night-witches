@@ -23,6 +23,11 @@ var radius :int = 150
 var angle : float = 0.0
 var acceleration : int = 2000
 
+#radiuses ect
+@onready var small_im : Sprite2D = $AreaSmall
+@onready var med_im : Sprite2D = $AreaMid
+@onready var big_im : Sprite2D = $AreaBig
+
 func _ready() -> void:
 	start_target = target
 
@@ -35,6 +40,7 @@ func _physics_process(delta: float) -> void:
 	if state == "hunt":
 		_hunt_move(delta)
 	
+	_decide_areas()
 
 
 
@@ -102,10 +108,15 @@ func _choose_plane_to_hunt():
 func _decide_if_hunting() -> String:
 	#doing this backwards to give priority to the outside one? not sure if that makes sens
 	
+	#im thinking to stop the issue with stopping i need to check if the instance is valid
+	#then revert back to the Vector 2
 	if target is not Vector2 and is_instance_valid(target): # so its an enemy plane
 		if target == GameVars.player:
 			_choose_plane_to_hunt()
 		return "hunt"
+	
+	if target is not Vector2 and is_instance_valid(target) == false:
+		return "patr"
 	
 	if GameVars.current_sus >= 2 and in_three == true:
 		if target is Vector2:
@@ -121,12 +132,35 @@ func _decide_if_hunting() -> String:
 		if target is Vector2:
 			_choose_plane_to_hunt()
 		return "hunt"
-	
-	
-	
 
 	
 	return "patr"
+
+func _decide_areas():
+	"""go through the sus meter andturn radious images on and off, turn them all off if hunting"""
+	if target is not Vector2:
+		small_im.visible = false
+		med_im.visible = false
+		big_im.visible = false
+		return
+		
+	if GameVars.current_sus == 0:
+		small_im.visible = true
+		med_im.visible = false
+		big_im.visible = false
+		return
+		
+	if GameVars.current_sus == 1:
+		small_im.visible = false
+		med_im.visible = true
+		big_im.visible = false
+		return
+		
+	if GameVars.current_sus >= 2:
+		small_im.visible = false
+		med_im.visible = false
+		big_im.visible = true
+		return
 #
 #
 #	Signals

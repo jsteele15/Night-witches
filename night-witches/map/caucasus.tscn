@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://6x2k4hqi0pcc"]
+[gd_scene load_steps=14 format=3 uid="uid://6x2k4hqi0pcc"]
 
 [ext_resource type="Script" uid="uid://dta01taeq0f5h" path="res://map/main.gd" id="1_uifiu"]
 [ext_resource type="PackedScene" uid="uid://om8skga37jqc" path="res://map/caucasus_ground_layer.tscn" id="2_77n2f"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://28grpjl81215" path="res://ui/ui.tscn" id="4_j2od4"]
 [ext_resource type="PackedScene" uid="uid://cshxn2723cs4k" path="res://map/large_building.tscn" id="5_vkc16"]
 [ext_resource type="PackedScene" uid="uid://brh5lddwy2lbe" path="res://ui/sound_system.tscn" id="10_rsjlm"]
+[ext_resource type="PackedScene" uid="uid://c8s0mdh8riamu" path="res://ui/dial.tscn" id="12_0m144"]
 
 [sub_resource type="Compositor" id="Compositor_uk6jo"]
 
@@ -165,3 +166,6 @@ compositor = SubResource("Compositor_uk6jo")
 [node name="ui" parent="." instance=ExtResource("4_j2od4")]
 
 [node name="sound system" parent="." instance=ExtResource("10_rsjlm")]
+
+[node name="dial" parent="." instance=ExtResource("12_0m144")]
+position = Vector2(2235, 588)

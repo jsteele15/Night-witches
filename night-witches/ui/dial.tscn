@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8s0mdh8riamu"]
+
+[ext_resource type="Texture2D" uid="uid://74s5faqnlkid" path="res://assets/img/dial.png" id="1_fgdrt"]
+[ext_resource type="Script" uid="uid://camtq5trvxmyi" path="res://ui/dial.gd" id="1_x8r0a"]
+
+[node name="dial" type="CharacterBody2D"]
+script = ExtResource("1_x8r0a")
+
+[node name="im" type="Sprite2D" parent="."]
+texture = ExtResource("1_fgdrt")
