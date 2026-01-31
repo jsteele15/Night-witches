@@ -66,6 +66,8 @@ func _move(delta : float):
 func _hunt_move(delta : float):
 	if target is Vector2:
 		return
+	if is_instance_valid(target) == false:
+		return
 	self.rotation_degrees = target.rotation_degrees
 	if circling == false:
 		var target_position = target.global_position + Vector2(radius * cos(angle), radius * sin(angle))

@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://b1q0jactwg8oj"]
+[gd_scene load_steps=8 format=3 uid="uid://b1q0jactwg8oj"]
 
 [ext_resource type="Texture2D" uid="uid://bp4qcf0j4s18i" path="res://assets/img/Marina Raskova.png" id="1_4xymx"]
 [ext_resource type="Script" uid="uid://ihk10n2m0etc" path="res://ui/tutorial_box.gd" id="1_58tfx"]
 [ext_resource type="PackedScene" uid="uid://xeg2gnmclwhw" path="res://ui/game_text.tscn" id="2_2g0v3"]
+[ext_resource type="Texture2D" uid="uid://cihpmupaq1dar" path="res://assets/img/ui/next up.png" id="4_ylvux"]
+[ext_resource type="Texture2D" uid="uid://valngfplooq4" path="res://assets/img/ui/next down.png" id="5_amxee"]
+[ext_resource type="Texture2D" uid="uid://bs7bkkcs3l7ma" path="res://assets/img/ui/next hover.png" id="6_yvmg3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_58tfx"]
 bg_color = Color(0.28235295, 0.34117648, 0.2784314, 1)
@@ -68,19 +71,21 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_58tfx")
 
-[node name="next button" type="Button" parent="."]
+[node name="next button" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -44.0
-offset_top = 271.0
-offset_right = 25.0
-offset_bottom = 302.0
+offset_left = -62.0
+offset_top = 267.0
+offset_right = 38.0
+offset_bottom = 307.0
 grow_horizontal = 0
 grow_vertical = 0
-text = "next"
+texture_normal = ExtResource("4_ylvux")
+texture_pressed = ExtResource("5_amxee")
+texture_hover = ExtResource("6_yvmg3")
 
 [connection signal="pressed" from="next button" to="." method="_on_next_button_pressed"]
