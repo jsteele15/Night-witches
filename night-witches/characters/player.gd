@@ -33,6 +33,8 @@ func _ready() -> void:
 	GameVars.player = self
 
 func _physics_process(delta: float) -> void:
+	if GameVars.night_over == true:
+		return
 	if GameVars.player_alive == false:
 		if smoke_trig == false:
 			main.sound_board.explosion_sound()

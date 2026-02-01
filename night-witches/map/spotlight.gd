@@ -8,6 +8,7 @@ var point_b : Vector2
 var target : Vector2
 var speed: int = 300
 var spotlight_range : int = 400
+@onready var alarm_sound : AudioStreamPlayer2D = $alarm
 
 #probably needs more levels but it works for now
 var speed_by_vis = [{"min": 2, "speed": 300},
@@ -60,7 +61,7 @@ func _set_spotlight_speed() -> int:
 
 func _on_spotlight_area_body_entered(body: Node2D) -> void:
 	if body.has_method("_bomb"):
-		print("plane entered")
+		alarm_sound.play()
 		plane_entered = true
 		body.in_spotlight = true
 		spotted_plane = true
@@ -76,7 +77,6 @@ func _on_spotlight_area_body_entered(body: Node2D) -> void:
 
 func _on_spotlight_area_body_exited(body: Node2D) -> void:
 	if body.has_method("_bomb"):
-		print("plane exited")
 		plane_entered = false
 		#stupid way of doing this but whatever
 		body.spotlight_cooldown.start()

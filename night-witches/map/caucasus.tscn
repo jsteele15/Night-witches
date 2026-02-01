@@ -27,8 +27,9 @@ script = ExtResource("3_rpmax")
 position = Vector2(1657, 1095)
 
 [node name="building2" parent="building container" instance=ExtResource("4_6apgj")]
-position = Vector2(1602, 1025)
+position = Vector2(1154, 333.00012)
 rotation = -0.9075712
+building_type = 2
 
 [node name="building3" parent="building container" instance=ExtResource("4_6apgj")]
 position = Vector2(1701, 1009.0001)
@@ -127,6 +128,91 @@ position = Vector2(2779, 737)
 rotation = 0.64751714
 building_type = 8
 
+[node name="house" parent="building container" instance=ExtResource("4_6apgj")]
+position = Vector2(1841, 1436)
+building_type = 10
+
+[node name="house2" parent="building container" instance=ExtResource("4_6apgj")]
+position = Vector2(2159, 768)
+building_type = 10
+
+[node name="house3" parent="building container" instance=ExtResource("4_6apgj")]
+position = Vector2(2696, 1333)
+rotation = 1.5707964
+building_type = 10
+
+[node name="house4" parent="building container" instance=ExtResource("4_6apgj")]
+position = Vector2(876, 1169)
+rotation = 1.5707964
+building_type = 10
+
+[node name="house5" parent="building container" instance=ExtResource("4_6apgj")]
+position = Vector2(1754, 495)
+rotation = 1.5707964
+building_type = 10
+
+[node name="large building3" parent="building container" instance=ExtResource("5_vkc16")]
+position = Vector2(921, 1448)
+building_type = 2
+
+[node name="large building4" parent="building container" instance=ExtResource("5_vkc16")]
+position = Vector2(1017, 1523)
+building_type = 2
+
+[node name="large building5" parent="building container" instance=ExtResource("5_vkc16")]
+position = Vector2(824, 1369)
+building_type = 2
+
+[node name="large building6" parent="building container" instance=ExtResource("5_vkc16")]
+position = Vector2(945, 1350)
+building_type = 2
+
+[node name="large building7" parent="building container" instance=ExtResource("5_vkc16")]
+position = Vector2(1014, 1425)
+building_type = 2
+
+[node name="building24" parent="building container" instance=ExtResource("4_6apgj")]
+position = Vector2(1241.0001, 389.00006)
+rotation = -1.2967796
+building_type = 2
+
+[node name="building25" parent="building container" instance=ExtResource("4_6apgj")]
+position = Vector2(1345, 384.99997)
+rotation = -1.9442968
+building_type = 2
+
+[node name="building26" parent="building container" instance=ExtResource("4_6apgj")]
+position = Vector2(1279, 474.99997)
+rotation = -0.1308997
+building_type = 6
+
+[node name="large building8" parent="building container" instance=ExtResource("5_vkc16")]
+position = Vector2(882, 93)
+building_type = 4
+
+[node name="large building9" parent="building container" instance=ExtResource("5_vkc16")]
+position = Vector2(802, 150)
+building_type = 4
+
+[node name="large building10" parent="building container" instance=ExtResource("5_vkc16")]
+position = Vector2(668, 278)
+building_type = 4
+
+[node name="building27" parent="building container" instance=ExtResource("4_6apgj")]
+position = Vector2(2451, 1187.0001)
+rotation = -0.64751714
+building_type = 6
+
+[node name="building28" parent="building container" instance=ExtResource("4_6apgj")]
+position = Vector2(2385, 1101.0001)
+rotation = -0.64751714
+building_type = 6
+
+[node name="building29" parent="building container" instance=ExtResource("4_6apgj")]
+position = Vector2(2289, 1016.0001)
+rotation = -0.64751714
+building_type = 6
+
 [node name="player" parent="." instance=ExtResource("2_uk6jo")]
 z_index = 10
 position = Vector2(2472, 2477)
@@ -141,11 +227,11 @@ rotation = 3.1415927
 [node name="german planes" type="Node" parent="."]
 
 [node name="enemy_plane" parent="german planes" instance=ExtResource("4_77n2f")]
-position = Vector2(1318, 1541)
+position = Vector2(2693, 1397)
 target = Vector2(1500, 1600)
 
 [node name="enemy_plane2" parent="german planes" instance=ExtResource("4_77n2f")]
-position = Vector2(2614, 1262)
+position = Vector2(1982, 1414)
 target = Vector2(2600, 1200)
 
 [node name="enemy_plane3" parent="german planes" instance=ExtResource("4_77n2f")]
@@ -159,6 +245,10 @@ target = Vector2(260, 900)
 [node name="enemy_plane5" parent="german planes" instance=ExtResource("4_77n2f")]
 position = Vector2(1021, 118)
 target = Vector2(1000, 200)
+
+[node name="enemy_plane6" parent="german planes" instance=ExtResource("4_77n2f")]
+position = Vector2(960, 1645)
+target = Vector2(1650, 950)
 
 [node name="WorldEnvironment" parent="." instance=ExtResource("3_ukfui")]
 compositor = SubResource("Compositor_uk6jo")

@@ -12,7 +12,9 @@ enum building_types {
 	non2 = 5,
 	ARRTILERY = 6,
 	non3 = 7,
-	BARBED = 8
+	BARBED = 8,
+	non4,
+	BRIDGE
 }
 
 var inside : bool = false

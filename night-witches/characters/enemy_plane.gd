@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-
+@onready var gun_sound : AudioStreamPlayer2D = $"gun fire"
 var turn_speed: float = 20.0
 var max_speed: float = 300.0
 var bottom_speed: float = 80.0
@@ -32,7 +32,10 @@ func _ready() -> void:
 	start_target = target
 
 func _physics_process(delta: float) -> void:
-	
+	if GameVars.night_over == true:
+		return
+	if GameVars.move_around == false:
+		return
 	state = _decide_if_hunting()
 	
 	if state == "patr":
@@ -46,7 +49,7 @@ func _physics_process(delta: float) -> void:
 
 func _move(delta : float):
 	var to_target
-	
+	turn_bullets_off()
 	if not target:
 		target = start_target
 
@@ -70,6 +73,7 @@ func _move(delta : float):
 	move_and_slide()
 
 func _hunt_move(delta : float):
+	$"bullet timer".start()
 	if target is Vector2:
 		return
 	if is_instance_valid(target) == false:
@@ -90,6 +94,8 @@ func _hunt_move(delta : float):
 func _choose_plane_to_hunt():
 	#we want to only call this once when its pick a target
 	#i need to change this in a way that doesnt
+	if gun_sound.playing == false:
+		gun_sound.play()
 	if GameVars.allied_planes.get_child_count() > 0:
 		#then hunt a plane
 		for p in GameVars.allied_planes.get_children():
@@ -197,3 +203,20 @@ func _on_plane_area_mid_body_exited(body: Node2D) -> void:
 func _on_plane_area_far_body_exited(body: Node2D) -> void:
 	if body.has_method("_bomb"):
 		in_three = false
+
+func turn_bullets_off():
+	for c in plane_im.get_children():
+		c.visible = false
+	$"bullet timer".stop()
+	$"bullet off".stop()
+
+func _on_bullet_timer_timeout() -> void:
+	var child := plane_im.get_child(randi() % plane_im.get_child_count())
+	child.visible = true
+	$"bullet off".start()
+
+
+func _on_bullet_off_timeout() -> void:
+	for c in plane_im.get_children():
+		c.visible = false
+	$"bullet timer".start()

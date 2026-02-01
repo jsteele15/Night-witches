@@ -28,7 +28,7 @@ polygon = PackedVector2Array(4340, -26, 4351, 2615, 4692, 2649, 4793, -64)
 position = Vector2(2049, 2065)
 
 [node name="Spotlight2" parent="spotlights" instance=ExtResource("2_qvr7t")]
-position = Vector2(2327, 1977)
+position = Vector2(338, 859)
 
 [node name="Spotlight3" parent="spotlights" instance=ExtResource("2_qvr7t")]
 position = Vector2(2565, 1850)
@@ -40,7 +40,7 @@ position = Vector2(2825, 1710)
 position = Vector2(1647, 1974)
 
 [node name="Spotlight6" parent="spotlights" instance=ExtResource("2_qvr7t")]
-position = Vector2(1263, 1800)
+position = Vector2(939, 1530)
 
 [node name="Spotlight7" parent="spotlights" instance=ExtResource("2_qvr7t")]
 position = Vector2(1367, 991)

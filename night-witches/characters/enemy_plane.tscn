@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://83ok3xdif8cu"]
+[gd_scene load_steps=11 format=3 uid="uid://83ok3xdif8cu"]
 
 [ext_resource type="Texture2D" uid="uid://jib8ojtsjoih" path="res://assets/img/german plane.png" id="1_7tlso"]
 [ext_resource type="Script" uid="uid://eo1343o6an1" path="res://characters/enemy_plane.gd" id="1_j6yx1"]
 [ext_resource type="Texture2D" uid="uid://cdyy7sht2wwct" path="res://assets/img/area small.png" id="2_7mrjc"]
 [ext_resource type="Texture2D" uid="uid://btio35slj1u6q" path="res://assets/img/area mid.png" id="3_g51sf"]
 [ext_resource type="Texture2D" uid="uid://fn4mkn4gha1k" path="res://assets/img/area big.png" id="4_heprf"]
+[ext_resource type="AudioStream" uid="uid://cycveqb0u5ef2" path="res://assets/music/fx/Enemy_Gun LOOP R1.mp3" id="6_heprf"]
+[ext_resource type="Texture2D" uid="uid://bif56ga50kkde" path="res://assets/img/bullet.png" id="6_v6sg3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j6yx1"]
 radius = 95.02105
@@ -31,6 +33,30 @@ texture = ExtResource("4_heprf")
 rotation = 3.1415927
 texture = ExtResource("1_7tlso")
 
+[node name="left one" type="Sprite2D" parent="Plane"]
+visible = false
+position = Vector2(20.999998, -26.000002)
+rotation = 3.1415925
+texture = ExtResource("6_v6sg3")
+
+[node name="left one2" type="Sprite2D" parent="Plane"]
+visible = false
+position = Vector2(16.999998, -26.000002)
+rotation = 3.1415925
+texture = ExtResource("6_v6sg3")
+
+[node name="right one" type="Sprite2D" parent="Plane"]
+visible = false
+position = Vector2(-22.000002, -25.999998)
+rotation = 3.1415925
+texture = ExtResource("6_v6sg3")
+
+[node name="right 2" type="Sprite2D" parent="Plane"]
+visible = false
+position = Vector2(-18.000002, -25.999998)
+rotation = 3.1415925
+texture = ExtResource("6_v6sg3")
+
 [node name="plane area low" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="plane area low"]
@@ -47,9 +73,22 @@ debug_color = Color(0.94847864, 4.3317677e-06, 0.58047587, 0.41960785)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="plane area far"]
 shape = SubResource("CircleShape2D_o4frs")
 
+[node name="gun fire" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_heprf")
+
+[node name="bullet timer" type="Timer" parent="."]
+wait_time = 0.009999999999999998
+autostart = true
+
+[node name="bullet off" type="Timer" parent="."]
+wait_time = 0.009999999999999998
+one_shot = true
+
 [connection signal="body_entered" from="plane area low" to="." method="_on_plane_area_low_body_entered"]
 [connection signal="body_exited" from="plane area low" to="." method="_on_plane_area_low_body_exited"]
 [connection signal="body_entered" from="plane area mid" to="." method="_on_plane_area_mid_body_entered"]
 [connection signal="body_exited" from="plane area mid" to="." method="_on_plane_area_mid_body_exited"]
 [connection signal="body_entered" from="plane area far" to="." method="_on_plane_area_far_body_entered"]
 [connection signal="body_exited" from="plane area far" to="." method="_on_plane_area_far_body_exited"]
+[connection signal="timeout" from="bullet timer" to="." method="_on_bullet_timer_timeout"]
+[connection signal="timeout" from="bullet off" to="." method="_on_bullet_off_timeout"]

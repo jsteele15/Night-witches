@@ -17,7 +17,7 @@ shape = SubResource("CircleShape2D_w81xn")
 position = Vector2(0, 1)
 texture = ExtResource("2_w81xn")
 hframes = 2
-vframes = 2
+vframes = 3
 
 [node name="smooke" parent="." instance=ExtResource("1_v0cl2")]
 position = Vector2(-1, 1)

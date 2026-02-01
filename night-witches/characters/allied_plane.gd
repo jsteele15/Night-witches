@@ -18,6 +18,10 @@ func _ready() -> void:
 	GameVars.allied_planes = self.get_parent()
 	
 func _physics_process(delta: float) -> void:
+	if GameVars.night_over == true:
+		return
+	if GameVars.move_around == false:
+		return
 	if player != null:
 		_move(delta)
 		_change_hight()
@@ -70,10 +74,8 @@ func _move(delta: float):
 		self.rotation_degrees = player.rotation_degrees
 		
 		#TODO lerp through these
-		if engine_on == true:
-			speed = MAX_SPEED
-		else:
-			speed = BOTTOM_SPEED
+		speed = GameVars.player.speed
+		
 			
 		velocity = transform.y * speed
 		move_and_slide()

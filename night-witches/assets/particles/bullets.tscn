@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bl8nk8qpknoan"]
+
+[ext_resource type="Texture2D" uid="uid://b58bibcquesn1" path="res://assets/img/spotlight.png" id="1_4wdxr"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_41e55"]
+particle_flag_disable_z = true
+gravity = Vector3(0, -200, 0)
+scale_min = 0.19999999
+scale_max = 0.19999999
+color = Color(0.7750634, 0.7750634, 0.7750634, 1)
+
+[node name="bullets" type="GPUParticles2D"]
+amount = 4
+texture = ExtResource("1_4wdxr")
+speed_scale = 31.35
+process_material = SubResource("ParticleProcessMaterial_41e55")

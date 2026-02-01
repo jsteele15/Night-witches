@@ -9,7 +9,7 @@ extends Node2D
 @onready var plane : TextureRect = $"start menu canvas/plane rect"
 @onready var plane2 : TextureRect = $"start menu canvas/plane rect2"
 var credit_text : String = "[center]
-Catgaming - Art
+DillonEntm't - Art
 
 Jam-bone - Programming
 

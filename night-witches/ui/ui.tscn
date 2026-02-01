@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://28grpjl81215"]
+[gd_scene load_steps=12 format=3 uid="uid://28grpjl81215"]
 
 [ext_resource type="Script" uid="uid://d3m4vlek1ox56" path="res://ui/ui.gd" id="1_ks8t7"]
 [ext_resource type="PackedScene" uid="uid://rye13sdxr8wl" path="res://ui/altitude_bar.tscn" id="1_nb4k0"]
@@ -7,6 +7,21 @@
 [ext_resource type="PackedScene" uid="uid://xeg2gnmclwhw" path="res://ui/game_text.tscn" id="5_tf0e0"]
 [ext_resource type="PackedScene" uid="uid://b1q0jactwg8oj" path="res://ui/tutorial_box.tscn" id="6_obcwv"]
 [ext_resource type="PackedScene" uid="uid://rl7k5x70dwb4" path="res://ui/evade_ui.tscn" id="7_bo1jx"]
+[ext_resource type="Texture2D" uid="uid://cc6cpyh8xwvx0" path="res://assets/img/ui/restart up.png" id="8_ay4pc"]
+[ext_resource type="Texture2D" uid="uid://bitmaecpmx46e" path="res://assets/img/ui/restart pressed.png" id="9_bi8hs"]
+[ext_resource type="Texture2D" uid="uid://bs5wfyxwxkm8s" path="res://assets/img/ui/restart hover.png" id="10_hrmpd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bo1jx"]
+bg_color = Color(0.28235295, 0.34117648, 0.2784314, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.73333335, 0.57254905, 0.34117648, 0.61960787)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
 [node name="ui" type="CanvasLayer"]
 script = ExtResource("1_ks8t7")
@@ -14,7 +29,9 @@ script = ExtResource("1_ks8t7")
 [node name="altitude bar" parent="." instance=ExtResource("1_nb4k0")]
 anchors_preset = 2
 anchor_top = 1.0
+offset_left = 0.0
 offset_top = -576.0
+offset_right = 71.0
 offset_bottom = -24.0
 grow_horizontal = 1
 grow_vertical = 0
@@ -24,6 +41,12 @@ offset_left = 2.0
 offset_top = 2.0
 offset_right = 2.0
 offset_bottom = -8.0
+
+[node name="tutorial box" parent="." instance=ExtResource("6_obcwv")]
+mouse_filter = 2
+
+[node name="evade ui" parent="." instance=ExtResource("7_bo1jx")]
+mouse_filter = 2
 
 [node name="main" type="Control" parent="."]
 layout_mode = 3
@@ -37,6 +60,8 @@ size_flags_vertical = 3
 mouse_filter = 2
 
 [node name="fail text" parent="main" instance=ExtResource("5_tf0e0")]
+visible = false
+clip_contents = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -53,11 +78,21 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 theme_override_constants/line_separation = 50
-theme_override_font_sizes/normal_font_size = 90
+theme_override_font_sizes/normal_font_size = 70
 text = "[center] 
 You Crashed"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="main/fail text"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bo1jx")
 
 [node name="VisIndicator" parent="main" instance=ExtResource("4_vkava")]
 layout_mode = 1
@@ -66,7 +101,7 @@ offset_top = 9.0
 offset_bottom = -1.0
 mouse_filter = 2
 
-[node name="restart button" type="Button" parent="main"]
+[node name="restart button" type="TextureButton" parent="main"]
 visible = false
 layout_mode = 1
 anchors_preset = -1
@@ -74,16 +109,12 @@ anchor_left = 0.522
 anchor_top = 0.5
 anchor_right = 0.522
 anchor_bottom = 0.5
-offset_left = -41.343994
-offset_top = 76.0
-offset_right = 19.656006
-offset_bottom = 107.0
-text = "restart"
-
-[node name="tutorial box" parent="." instance=ExtResource("6_obcwv")]
-mouse_filter = 2
-
-[node name="evade ui" parent="." instance=ExtResource("7_bo1jx")]
-mouse_filter = 2
+offset_left = -74.343994
+offset_top = 147.0
+offset_right = 65.656006
+offset_bottom = 187.0
+texture_normal = ExtResource("8_ay4pc")
+texture_pressed = ExtResource("9_bi8hs")
+texture_hover = ExtResource("10_hrmpd")
 
 [connection signal="pressed" from="main/restart button" to="." method="_on_restart_button_pressed"]
