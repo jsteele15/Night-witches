@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://cdyy7sht2wwct" path="res://assets/img/area small.png" id="2_7mrjc"]
 [ext_resource type="Texture2D" uid="uid://btio35slj1u6q" path="res://assets/img/area mid.png" id="3_g51sf"]
 [ext_resource type="Texture2D" uid="uid://fn4mkn4gha1k" path="res://assets/img/area big.png" id="4_heprf"]
-[ext_resource type="AudioStream" uid="uid://cycveqb0u5ef2" path="res://assets/music/fx/Enemy_Gun LOOP R1.mp3" id="6_heprf"]
 [ext_resource type="Texture2D" uid="uid://bif56ga50kkde" path="res://assets/img/bullet.png" id="6_v6sg3"]
+[ext_resource type="AudioStream" uid="uid://cv5omu5fq2ko6" path="res://assets/music/fx/Enemy_Gun LOOP R2.mp3" id="7_v6sg3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j6yx1"]
 radius = 95.02105
@@ -74,7 +74,8 @@ debug_color = Color(0.94847864, 4.3317677e-06, 0.58047587, 0.41960785)
 shape = SubResource("CircleShape2D_o4frs")
 
 [node name="gun fire" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_heprf")
+stream = ExtResource("7_v6sg3")
+volume_db = 5.0
 
 [node name="bullet timer" type="Timer" parent="."]
 wait_time = 0.009999999999999998

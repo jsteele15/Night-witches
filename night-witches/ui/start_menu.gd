@@ -16,6 +16,15 @@ Jam-bone - Programming
 Slimehunter - Music
 
 Fonts - Trajanus Roman by Roger White".format({})
+
+var history_text : String = "[left]
+The 588th Night Bomber Regiment was an all‑female unit of the Soviet Air Forces during World War II.
+
+Founded by Marina Raskova, the regiment included 261 women over the course of the war. They flew more than 30,000 missions during major Soviet offensives such as the Battle of the Caucasus (1942) and the Polish Offensive (1944).
+
+They carried out their raids at night, often cutting their engines to maintain the element of surprise. The whooshing sound their biplanes made while gliding earned them the nickname “Night Witches.” Flying in small squads, some aircraft would distract enemy defenses while others proceeded to the target.
+
+In total, 32 women died while serving in the 588th, and 23 were awarded the title Hero of the Soviet Union."
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$"main track".play()
@@ -48,3 +57,4 @@ func _on_credits_pressed() -> void:
 func _on_history_pressed() -> void:
 	click_sound.play()
 	side_text.visible = true
+	side_text.set_up_text(history_text)
