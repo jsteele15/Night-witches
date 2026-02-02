@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://rtuk2xq8fwg6"
+path="res://.godot/imported/The Night Witches OS R3.mp3-19d72e3d60aeb1f7444f1d988dbec56e.mp3str"
+
+[deps]
+
+source_file="res://assets/music/tracks/The Night Witches OS R3.mp3"
+dest_files=["res://.godot/imported/The Night Witches OS R3.mp3-19d72e3d60aeb1f7444f1d988dbec56e.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

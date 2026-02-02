@@ -46,4 +46,5 @@ func _on_body_entered(body: Node2D) -> void:
 		player = body
 		GameVars.number_of_bombs = GameVars.MAX_BOMBS
 		_spawn_new_planes()
+		player.main.sound_board.click_sound.play()
 		return

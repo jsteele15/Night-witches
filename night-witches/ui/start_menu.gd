@@ -28,6 +28,7 @@ In total, 32 women died while serving in the 588th, and 23 were awarded the titl
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$"main track".play()
+	$smooke.emitting = true
 
 
 

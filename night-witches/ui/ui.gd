@@ -21,13 +21,15 @@ func _process(delta: float) -> void:
 		fail_text.visible = true
 		
 		fail_text.set_up_text("[center]You were shot down".format({}))
+		main.sound_board.play_death()
 		restart_button.visible = true
 		death_trig = true
 		return
 	
 	if GameVars.player_alive == false and death_trig == false:
 		fail_text.visible = true
-		fail_text.set_up_text("[center]You Crashed".format({}))
+		fail_text.set_up_text("[center]You Crashed, remember to turn your engine back on".format({}))
+		main.sound_board.play_death()
 		restart_button.visible = true
 		death_trig = true
 		return
@@ -35,6 +37,7 @@ func _process(delta: float) -> void:
 	if GameVars.night_over == true and night_over_trig == false:
 		#fail_text.text = "[center]Night over, points {p}".format({"p": GameVars.current_points})
 		fail_text.visible = true
+		main.sound_board.play_victory()
 		fail_text.set_up_text("[center]Greatings comrade, you survived the night and inflicted {p} points of damage on the Facists!".format({"p": GameVars.current_points}))
 		restart_button.visible = true
 		night_over_trig = true

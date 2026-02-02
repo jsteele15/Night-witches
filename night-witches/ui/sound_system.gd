@@ -12,6 +12,10 @@ extends Node
 @onready var gun_sounds : AudioStreamPlayer = $"enemy guns"
 #click
 @onready var click_sound : AudioStreamPlayer = $"click sound"
+#victory
+@onready var victory_track : AudioStreamPlayer = $"victory track"
+var vict_playing : bool = false
+var death_playing :bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	main_track.play()
@@ -46,3 +50,17 @@ func switch_alarm(switch : bool):
 		alarm_siren.play()
 	else:
 		alarm_siren.stop()
+
+func play_victory():
+	if vict_playing == true:
+		return
+	main_track.stop()
+	victory_track.play()
+	vict_playing = true
+
+func play_death():
+	if death_playing == true:
+		return
+	main_track.stop()
+	$"death track".play()
+	death_playing = true

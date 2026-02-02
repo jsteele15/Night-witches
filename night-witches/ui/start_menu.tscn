@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://yjevycyx5wa6"]
+[gd_scene load_steps=22 format=3 uid="uid://yjevycyx5wa6"]
 
 [ext_resource type="Script" uid="uid://wa5xu0eyn8a2" path="res://ui/start_menu.gd" id="1_kw4xl"]
 [ext_resource type="Texture2D" uid="uid://budhr3wt51jx4" path="res://assets/img/ui/play base but.png" id="2_lb6g3"]
@@ -18,7 +18,8 @@
 [ext_resource type="AudioStream" uid="uid://cu3f7dp5kyntv" path="res://assets/music/fx/UI_Click OS R1.mp3" id="15_4wm4l"]
 [ext_resource type="Texture2D" uid="uid://0enhcdyk0peh" path="res://assets/img/plane.png" id="16_gkhny"]
 [ext_resource type="Texture2D" uid="uid://jib8ojtsjoih" path="res://assets/img/german plane.png" id="17_vhcxx"]
-[ext_resource type="AudioStream" uid="uid://dqya5u40ey8ff" path="res://assets/music/tracks/The Night Witches R2.mp3" id="19_vhcxx"]
+[ext_resource type="AudioStream" uid="uid://rtuk2xq8fwg6" path="res://assets/music/tracks/The Night Witches OS R3.mp3" id="19_waplx"]
+[ext_resource type="PackedScene" uid="uid://brsxwq7qjdeg7" path="res://assets/particles/smooke.tscn" id="20_waplx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0kfsi"]
 bg_color = Color(0.28235295, 0.34117648, 0.2784314, 1)
@@ -204,7 +205,10 @@ texture = ExtResource("17_vhcxx")
 stream = ExtResource("15_4wm4l")
 
 [node name="main track" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("19_vhcxx")
+stream = ExtResource("19_waplx")
+
+[node name="smooke" parent="." instance=ExtResource("20_waplx")]
+position = Vector2(-83, 557)
 
 [connection signal="pressed" from="start menu canvas/Control/sides screen container/left side container/VBoxContainer/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="start menu canvas/Control/sides screen container/left side container/VBoxContainer/tutorial" to="." method="_on_tutorial_pressed"]
